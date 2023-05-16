@@ -1,0 +1,12 @@
+[
+    {
+        "quantity": 1,
+        "character_id": 1,
+        "item_id": 1
+    },
+    {
+        "quantity": 1,
+        "character_id": 2,
+        "item_id": 5
+    }
+]

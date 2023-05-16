@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Brush Teeth",
+        "time": 120,
+        "category_id": 1,
+        "character_id": 1
+    },
+    {
+        "name": "Make Bed",
+        "time": 120,
+        "category_id": 2,
+        "character_id": 1
+    },
+    {
+        "name": "Finish Homework",
+        "time": 1800,
+        "category_id": 3,
+        "character_id": 1
+    },
+    {
+        "name": "Do ten Jumping Jacks",
+        "time": 30,
+        "category_id": 4,
+        "character_id": 2
+    },
+    {
+        "name": "Draw your avatar",
+        "time": 300,
+        "category_id": 5,
+        "character_id": 2
+    }
+]

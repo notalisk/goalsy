@@ -4,15 +4,14 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 // compareSync takes the entered password and compares it against the hashed password
-class User extends Model {
+class Account extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
 // this is our "account" model
-// creates our user model with attributes
-User.init(
+Account.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -47,21 +46,21 @@ User.init(
     },
     {
         hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+            beforeCreate: async (newAccountData) => {
+                newAccountData.password = await bcrypt.hash(newAccountData.password, 10);
+                return newAccountData;
             },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
+            beforeUpdate: async (updatedAccountData) => {
+                updatedAccountData.password = await bcrypt.hash(updatedAccountData.password, 10);
+                return updatedAccountData;
             },
         },
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'account',
     }
 );
 
-module.exports = User;
+module.exports = Account;

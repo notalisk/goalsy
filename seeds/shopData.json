@@ -1,0 +1,122 @@
+[
+    {
+        "quantity": 1,
+        "price": 5,
+        "character_id": 1,
+        "item_id": 1
+    },
+    {
+        "quantity": 1,
+        "price": 30,
+        "character_id": 1,
+        "item_id": 2
+    },
+    {
+        "quantity": 1,
+        "price": 75,
+        "character_id": 1,
+        "item_id": 3
+    },
+    {
+        "quantity": 1,
+        "price": 200,
+        "character_id": 1,
+        "item_id": 4
+    },
+    {
+        "quantity": 1,
+        "price": 700,
+        "character_id": 1,
+        "item_id": 5
+    },
+    {
+        "quantity": 1,
+        "price": 5,
+        "character_id": 1,
+        "item_id": 6
+    },
+    {
+        "quantity": 1,
+        "price": 30,
+        "character_id": 1,
+        "item_id": 7
+    },
+    {
+        "quantity": 1,
+        "price": 75,
+        "character_id": 1,
+        "item_id": 8
+    },
+    {
+        "quantity": 1,
+        "price": 200,
+        "character_id": 1,
+        "item_id": 9
+    },
+    {
+        "quantity": 1,
+        "price": 700,
+        "character_id": 1,
+        "item_id": 10
+    },
+    {
+        "quantity": 1,
+        "price": 5,
+        "character_id": 1,
+        "item_id": 11
+    },
+    {
+        "quantity": 1,
+        "price": 30,
+        "character_id": 1,
+        "item_id": 12
+    },
+    {
+        "quantity": 1,
+        "price": 75,
+        "character_id": 1,
+        "item_id": 13
+    },
+    {
+        "quantity": 1,
+        "price": 200,
+        "character_id": 1,
+        "item_id": 14
+    },
+    {
+        "quantity": 1,
+        "price": 700,
+        "character_id": 1,
+        "item_id": 15
+    },
+    {
+        "quantity": 1,
+        "price": 5,
+        "character_id": 1,
+        "item_id": 16
+    },
+    {
+        "quantity": 1,
+        "price": 30,
+        "character_id": 1,
+        "item_id": 17
+    },
+    {
+        "quantity": 1,
+        "price": 75,
+        "character_id": 1,
+        "item_id": 18
+    },
+    {
+        "quantity": 1,
+        "price": 200,
+        "character_id": 1,
+        "item_id": 19
+    },
+    {
+        "quantity": 1,
+        "price": 700,
+        "character_id": 1,
+        "item_id": 20
+    }
+]

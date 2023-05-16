@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Weak slingshot",
+        "category_id": 1,
+        "cost": 1,
+        "rarity_id": 1
+    },
+    {
+        "name": "Shiny sword",
+        "category_id": 1,
+        "cost": 10,
+        "rarity_id": 2
+    },
+    {
+        "name": "Staff of Light",
+        "category_id": 1,
+        "cost": 30,
+        "rarity_id": 3
+    },
+    {
+        "name": "Flaming Battle Lance",
+        "category_id": 1,
+        "cost": 100,
+        "rarity_id": 4
+    },
+    {
+        "name": "Immovable Object",
+        "category_id": 1,
+        "cost": 400,
+        "rarity_id": 5
+    },
+    {
+        "name": "Tattered chainmail",
+        "category_id": 2,
+        "cost": 1,
+        "rarity_id": 1
+    },
+    {
+        "name": "Leather chaps",
+        "category_id": 2,
+        "cost": 10,
+        "rarity_id": 2
+    },
+    {
+        "name": "Knight's Helm",
+        "category_id": 2,
+        "cost": 30,
+        "rarity_id": 3
+    },
+    {
+        "name": "Dreamweaver Robes",
+        "category_id": 2,
+        "cost": 100,
+        "rarity_id": 4
+    },
+    {
+        "name": "Boots of Steadfastness",
+        "category_id": 2,
+        "cost": 400,
+        "rarity_id": 5
+    },
+    {
+        "name": "Bronze locket",
+        "category_id": 3,
+        "cost": 1,
+        "rarity_id": 5
+    },
+    {
+        "name": "Silver pendant",
+        "category_id": 3,
+        "cost": 10,
+        "rarity_id": 5
+    },
+    {
+        "name": "Ring of wealth",
+        "category_id": 3,
+        "cost": 30,
+        "rarity_id": 5
+    },
+    {
+        "name": "Chain of Suffering",
+        "category_id": 3,
+        "cost": 100,
+        "rarity_id": 5
+    },
+    {
+        "name": "Eternal Amulet of the Damned",
+        "category_id": 3,
+        "cost": 400,
+        "rarity_id": 5
+    },
+    {
+        "name": "Mangy dog",
+        "category_id": 4,
+        "cost": 1,
+        "rarity_id": 1
+    },
+    {
+        "name": "Parrot",
+        "category_id": 4,
+        "cost": 10,
+        "rarity_id": 2
+    },
+    {
+        "name": "Skittering Spider",
+        "category_id": 4,
+        "cost": 30,
+        "rarity_id": 3
+    },
+    {
+        "name": "Bandit the Raccoon",
+        "category_id": 4,
+        "cost": 100,
+        "rarity_id": 4
+    },
+    {
+        "name": "Majestic Pheonix",
+        "category_id": 4,
+        "cost": 400,
+        "rarity_id": 5
+    }
+]
