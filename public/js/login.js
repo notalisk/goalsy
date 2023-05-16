@@ -25,9 +25,9 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('').ariaValueMax.trim();
-    const username = document.querySelector('').ariaValueMax.trim();
-    const password = document.querySelector('').ariaValueMax.trim();
+    const name = document.querySelector('#name-signup').ariaValueMax.trim();
+    const username = document.querySelector('#username-signup').ariaValueMax.trim();
+    const password = document.querySelector('#password-signup').ariaValueMax.trim();
 
     if (name && username && password) {
         const response = await fetch('/api/users', {
