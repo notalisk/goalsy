@@ -2,20 +2,18 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+A fun task list website that gamifies your everyday to-do list. Earn points that you can spend in the shop for cool cosmetics and earn experience to level up your character!
 
 ## Table of Contents
 
 
 - [Installation](#installation)
+- [Wire-Frame](#wire-frame)
+- [Acceptance-Criteria](#acceptance-criteria)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Webpage](#webpage)
 
 ## Installation
 
@@ -24,7 +22,7 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Wire-frame 
 
-![alt text](assets/images/screenshot.png)
+![Goalsy-wire-frame](assets/Goalsy-wireframe.png)
 
 
 ## Acceptance-criteria
