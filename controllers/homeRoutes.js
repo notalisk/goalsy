@@ -12,34 +12,33 @@ router.get('/login', async (req, res) => {
 });
 
 router.get('/store', async (req, res) => {
-    console.log('test');
-    try {
-        const shopData = await Shop.findAll({
-            // include: [
-            //     {
-            //         model: Item,
-            //     },
-            //     {
-            //         model: Item_category,
-            //     },
-            //     {
-            //         model: Rarity,
-            //     }
-            // ]
-        });
 
-        console.log('checkpoint 2');
+    Shop.findAll({
+        include: [
+            {
+                model: Item,
+                include: [
+                    {
+                        model: Rarity,
+                    },
+                    {
+                        model: Item_category,
+                    },
+                ]
+            }
+        ]
+    })
+    .then(shopData => {
+        console.log(shopData);
 
-        const items = shopData.map((item) => item.get({ plain: true }));
+        const items = shopData.map((item_id) => item_id.get({ plain: true }));
 
-        res.render('store', {
-            Shop
-        });
-
-    } catch (err) {
-        console.log('checkpoint 00');
-        //res.status(500).json(err);
-    }
+        res.render('store', {items});
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;
