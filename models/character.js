@@ -1,8 +1,10 @@
+// import sequelize and mysql database connection through sequelize
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Character extends Model { }
 
+// creates our character model
 Character.init(
     {
         id: {
@@ -11,26 +13,10 @@ Character.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
-        inventory_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'inventory',
-                key: 'id',
-            },
-        },
         // avatar: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
+            //     type: DataTypes.STRING,
+            //     allowNull: false,
+            // },
         level: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -70,6 +56,25 @@ Character.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 1,
+        },
+        account_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'account',
+                key: 'id',
+            },
+        },
+        inventory_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        bag_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'bag',
+                key: 'id',
+            },
         },
     },
     {

@@ -2,10 +2,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Inventory extends Model { }
+class Bank extends Model{}
 
-// creates our inventory model
-Inventory.init(
+// creates our bank model
+Bank.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,6 +17,11 @@ Inventory.init(
             type: DataTypes.INTEGER,
             defaultValue: 1,
         },
+        size: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 30,
+        },
         character_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -27,7 +32,6 @@ Inventory.init(
         },
         item_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'item',
                 key: 'id',
@@ -39,8 +43,8 @@ Inventory.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'inventory',
+        modelName: 'bank',
     }
-);
+)
 
-module.exports = Inventory;
+module.exports = Bank;

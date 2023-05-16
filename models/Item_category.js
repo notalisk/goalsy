@@ -2,10 +2,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Tasks_categories extends Model { }
+class Item_category extends Model {}
 
-// creates our categories for items
-Tasks_categories.init(
+// creates our model for item categories
+Item_category.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -23,8 +23,8 @@ Tasks_categories.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'tasks_categories',
+        modelName: 'item_category',
     }
 );
 
-module.exports = Tasks_categories;
+module.exports = Item_category;

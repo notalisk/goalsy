@@ -2,10 +2,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Inventory extends Model { }
+class Task extends Model { }
 
-// creates our inventory model
-Inventory.init(
+// creates our model for tasks
+Task.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -13,9 +13,26 @@ Inventory.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        quantity: {
+        name: {
+            type: DataTypes.STRING(20),
+            allowNull: false,
+        },
+        time: {
             type: DataTypes.INTEGER,
-            defaultValue: 1,
+            allowNull: false,
+        },
+        isComplete: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'task_category',
+                key: 'id',
+            },
         },
         character_id: {
             type: DataTypes.INTEGER,
@@ -25,22 +42,14 @@ Inventory.init(
                 key: 'id',
             },
         },
-        item_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'item',
-                key: 'id',
-            },
-        },
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'inventory',
+        modelName: 'task',
     }
 );
 
-module.exports = Inventory;
+module.exports = Task;

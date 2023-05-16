@@ -1,11 +1,11 @@
-// import bcrypt, sequelize, and mysql database connection through sequelize
+// import sequelize and mysql database connection through sequelize
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Items_categories extends Model {}
+class Bag extends Model { }
 
-// creates our categories for items
-Items_categories.init(
+// creates our bag model
+Bag.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,14 +17,26 @@ Items_categories.init(
             type: DataTypes.STRING(20),
             allowNull: false,
         },
+        size: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        rarity_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'rarity',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'items_categories',
+        modelName: 'bag',
     }
-);
+)
 
-module.exports = Items_categories;
+module.exports = Bag;
