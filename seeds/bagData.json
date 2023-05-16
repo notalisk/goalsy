@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Tiny Bag",
+        "size": 4,
+        "rarity_id": 1
+    },
+    {
+        "name": "Fanny pack",
+        "size": 8,
+        "rarity_id": 2
+    },
+    {
+        "name": "Stout Bag",
+        "size": 16,
+        "rarity_id": 3
+    },
+    {
+        "name": "Huge Bag",
+        "size": 24,
+        "rarity_id": 4
+    },
+    {
+        "name": "Colossal Bag",
+        "size": 30,
+        "rarity_id": 5
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Weak slingshot",
+        "category_id": 1,
+        "cost": 1,
+        "rarity_id": 1
+    },
+    {
+        "name": "Tattered chainmail",
+        "category_id": 2,
+        "cost": 10,
+        "rarity_id": 2
+    },
+    {
+        "name": "Silken pants",
+        "category_id": 3,
+        "cost": 30,
+        "rarity_id": 3
+    },
+    {
+        "name": "Majestic Pheonix",
+        "category_id": 4,
+        "cost": 100,
+        "rarity_id": 4
+    },
+    {
+        "name": "Eternal Amulet of the Damned",
+        "category_id": 1,
+        "cost": 400,
+        "rarity_id": 5
+    }
+]

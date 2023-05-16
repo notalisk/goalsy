@@ -1,11 +1,11 @@
-// import sequelize and mysql database connection through sequelize
+// import bcrypt, sequelize, and mysql database connection through sequelize
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Inventory extends Model { }
+class Item extends Model{}
 
-// creates our inventory model
-Inventory.init(
+// creates our model for items
+Item.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -13,23 +13,27 @@ Inventory.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        quantity: {
-            type: DataTypes.INTEGER,
-            defaultValue: 1,
+        name: {
+            type: DataTypes.STRING(30),
+            allowNull: false,
         },
-        character_id: {
+        category_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'character',
+                model: 'item_category',
                 key: 'id',
             },
         },
-        item_id: {
+        cost: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        rarity_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'item',
+                model: 'rarity',
                 key: 'id',
             },
         },
@@ -39,8 +43,8 @@ Inventory.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'inventory',
+        modelName: 'item',
     }
-);
+)
 
-module.exports = Inventory;
+module.exports = Item;

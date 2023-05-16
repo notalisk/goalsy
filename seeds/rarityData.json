@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Common"
+    },
+    {
+        "name": "Uncommon"
+    },
+    {
+        "name": "Rare"
+    },
+    {
+        "name": "Epic"
+    },
+    {
+        "name": "Legendary"
+    }
+]
