@@ -1,14 +1,15 @@
-{{#each items}}
+{{#each items as |item|}}
 <div class="row justify-content-around">
     <div class="col">
         <img src="">
     </div>
     <div class="col">
-        <p>{{items.name}}</p>
+        <p>{{item.Item.name}}</p>
     </div>
     <div class="col">
-        <i class="fa-solid fa-coins"></i>
-        <p></p>
+        <img src="/images/coin-icon.png">
+        <p>{{item.price}}</p>
     </div>
 </div>
 {{/each}}
+<h1>test</h1>

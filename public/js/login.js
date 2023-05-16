@@ -1,11 +1,9 @@
-const { doc } = require("prettier");
-
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
 
-    const username = document.querySelector('#login-username').ariaValueMax.trim();
-    const password = document.querySelector('#login-password').ariaValueMax.trim();
+    const username = document.querySelector('#login-username').value.trim();
+    const password = document.querySelector('#login-password').value.trim();
 
     if (username && password) {
         const response = await fetch('/api/users/login', {
@@ -25,9 +23,9 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#name-signup').ariaValueMax.trim();
-    const username = document.querySelector('#username-signup').ariaValueMax.trim();
-    const password = document.querySelector('#password-signup').ariaValueMax.trim();
+    const name = document.querySelector('#name-signup').value.trim();
+    const username = document.querySelector('#username-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
 
     if (name && username && password) {
         const response = await fetch('/api/users', {
@@ -45,8 +43,8 @@ const signupFormHandler = async (event) => {
 };
 
 document
-    .querySelector('.login-form')
-    .addEventListener('submit', signupFormHandler);
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
 
 document
     .querySelector('.signup-form')
