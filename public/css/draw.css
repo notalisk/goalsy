@@ -12,6 +12,11 @@ header {
   justify-content: center;
 }
 
+.logo {
+  max-width: 75px;
+  
+}
+
 body{
  
   align-items: center;
