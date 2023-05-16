@@ -24,47 +24,38 @@ const seedDatabase = async () => {
     });
     
     await Rarity.bulkCreate(rarityData, {
-        individualHooks: true,
         returning: true,
     });
 
     await Bag.bulkCreate(bagData, {
-        individualHooks: true,
         returning: true,
     });
 
     await Item_category.bulkCreate(item_categoryData, {
-        individualHooks: true,
         returning: true,
     });
 
     await Task_category.bulkCreate(task_categoryData, {
-        individualHooks: true,
         returning: true,
     });
     
     await Item.bulkCreate(itemData, {
-        individualHooks: true,
         returning: true,
     });
     
     await Character.bulkCreate(characterData, {
-        individualHooks: true,
         returning: true,
     });
 
     await Inventory.bulkCreate(inventoryData, {
-        individualHooks: true,
         returning: true,
     });
 
     await Shop.bulkCreate(shopData, {
-        individualHooks: true,
         returning: true,
     });
 
     await Task.bulkCreate(taskData, {
-        individualHooks: true,
         returning: true,
     });
 

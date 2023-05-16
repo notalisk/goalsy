@@ -21,7 +21,7 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        isComplete: {
+        is_complete: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false,
