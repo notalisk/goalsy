@@ -55,7 +55,7 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
-router.get('/shop', async (req, res) => {
+router.get('/shop', withAuth, async (req, res) => {
     Shop.findAll({
         include: [
             {
