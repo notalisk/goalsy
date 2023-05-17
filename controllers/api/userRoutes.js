@@ -137,6 +137,7 @@ router.put('/tasks/:id', async (req, res) => {
          characterObject.strength += getRandomNumber(1, 5);
          characterObject.intelligence += getRandomNumber(1, 5);
          characterObject.constitution += getRandomNumber(1, 5);
+         characterObject.health += getRandomNumber(5, 13)
       }
 
       const characterUpdate = await Character.update(characterObject, {
