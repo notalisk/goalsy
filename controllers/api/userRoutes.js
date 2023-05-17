@@ -1,72 +1,70 @@
 const router = require('express').Router();
-
-const { Account } = require('../../models');
+const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../../models');
 
 router.post('/', async (req, res) => {
-    console.log(req.body)
-    try {
-        const accountData = await Account.create(req.body);
+   try {
+      const accountData = await Account.create(req.body);
 
-        req.session.save(() => {
-            req.session.email = accountData.email;
-            req.session.username = accountData.username;
-            req.session.password = accountData.password;
-            req.session.logged_in = true;
+      const characterData = await Character.create({
+         account_id: accountData.dataValues.id
+      });
 
+      const inventoryData = await Inventory.create({
+         character_id: characterData.dataValues.id
+      })
 
-            res.status(200).json(accountData);
-        });
-    } catch (err) { 
-        console.log(err)
-        res.status(400).json(err);
-    }
+      req.session.save(() => {
+         req.session.username = accountData.username;
+         req.session.logged_in = true;
+
+         res.status(200).json(accountData);
+      });
+   } catch (err) {
+      res.status(400).json(err);
+   }
 });
 
 router.post('/login', async (req, res) => {
-    try {
-        const userData = await Account.findOne({ where: { username: req.body.username } });
+   try {
+      const userData = await Account.findOne({ where: { username: req.body.username } });
 
-        if (!userData) {
-            res
-                .status(400)
-                .json({ message: "Incorrect username or password, please try again!" });
-            return;
-        }
+      if (!userData) {
+         res
+            .status(400)
+            .json({ message: "Incorrect username or password, please try again!" });
+         return;
+      }
 
-        const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = await userData.checkPassword(req.body.password);
 
-        if (!validPassword) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect username or password, please try again!' });
-            return;
-        }
+      if (!validPassword) {
+         res
+            .status(400)
+            .json({ message: 'Incorrect username or password, please try again!' });
+         return;
+      }
 
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
+      req.session.save(() => {
+         req.session.username = userData.username;
+         req.session.logged_in = true;
 
-            res.json({ user: userData, message: 'You are now logged in!' });
-        });
+         res.json({ user: userData, message: 'You are now logged in!' });
+      });
 
-    } catch (err) {
-        res.status(400).json(err);
-    }
+   } catch (err) {
+      res.status(400).json(err);
+   }
 });
 
 router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
+   if (req.session.logged_in) {
+      req.session.destroy(() => {
+         res.status(204).end();
+      });
+   } else {
+      res.status(404).end();
+   }
 });
-
-module.exports = router;
-
-const { Task, Task_category, Character, Inventory } = require('../../models')
 
 router.post('/addTask', async (req, res) => {
    try {
@@ -76,11 +74,23 @@ router.post('/addTask', async (req, res) => {
          }
       });
 
+      const account = await Account.findOne({
+         where: {
+            username: req.session.username
+         }
+      });
+
+      const character = await Character.findOne({
+         where: {
+            account_id: account.dataValues.id
+         }
+      });
+
       await Task.create({
          name: req.body.text,
          time: req.body.time,
          category_id: category.dataValues.id,
-         character_id: 1
+         character_id: character.dataValues.id
       });
 
       res.json({ message: 'Task added successfully' });
@@ -102,7 +112,6 @@ router.delete('/tasks/:id', async (req, res) => {
 
 router.put('/tasks/:id', async (req, res) => {
    try {
-      console.log(req.params.id)
       const task = await Task.findOne({
          where: {
             id: req.params.id,
@@ -184,7 +193,7 @@ router.put('/shop/:item_id', async (req, res) => {
       res.json(inventory);
 
    } catch (err) {
-      res.status(500).json({ error: 'An error occurred while buying the item'});
+      res.status(500).json({ error: 'An error occurred while buying the item' });
    }
 });
 

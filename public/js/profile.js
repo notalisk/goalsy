@@ -63,14 +63,24 @@ const startTaskHandler = async (id) => {
             'Content-Type': 'application/json'
         }
     });
-    if(response.ok) {
+    if (response.ok) {
         alert("You completed a task!");
         window.location.reload();
     }
 
 };
-document.querySelector('.start-button').addEventListener('click', startTaskHandler);
 
-document.querySelector('.delete-button').addEventListener('click', deleteTaskHandler);
+const startButton = document.querySelector('.start-button');
+if (startButton) {
+    startButton.addEventListener('click', startTaskHandler);
+}
 
-document.querySelector('#addTask').addEventListener('click', addTaskHandler);
+const deleteButton = document.querySelector('.delete-button');
+if (deleteButton) {
+    deleteButton.addEventListener('click', deleteTaskHandler);
+}
+
+const addTaskButton = document.querySelector('#addTask');
+if (addTaskButton) {
+    addTaskButton.addEventListener('click', addTaskHandler);
+}

@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const path = require('path');
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../models');
-const sequelize = require('../config/connection');
 const { withAuth } = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -14,11 +12,15 @@ router.get('/login', async (req, res) => {
 
 router.get('/profile', withAuth, async (req, res) => {
     try {
-        console.log(req.session)
-        const correctCharId = req.session.user_id;
+        const findAccount = await Account.findOne({
+            where: {
+                username: req.session.username
+            }
+        })
+
         const characterData = await Character.findAll({
             where: {
-                id: correctCharId
+                account_id: findAccount.dataValues.id
             },
             include: [
                 {
@@ -29,7 +31,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
         const character = characterData.map(character => character.get({ plain: true }));
         const correctCharId1 = character[0].id;
-        console.log(character[0].id)
+
         const taskData = await Task.findAll({
             where: {
                 character_id: correctCharId1
@@ -69,14 +71,14 @@ router.get('/shop', async (req, res) => {
             }
         ]
     })
-    .then(shopData => {
-        const items = shopData.map((item_id) => item_id.get({ plain: true }));
+        .then(shopData => {
+            const items = shopData.map((item_id) => item_id.get({ plain: true }));
 
-        res.render('store', { items });
-    })
-    .catch(err => {
-        console.log(err);
-    });
+            res.render('store', { items });
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 module.exports = router;

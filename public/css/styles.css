@@ -1,5 +1,9 @@
 :root {
-    
+    --light: #F8F4E3;
+    --aqua: #0FA3B1;
+    --black: #332E3C;
+    --pink: #C884A6;
+    --blue: #003554;
 }
 
 #nav-logo {
