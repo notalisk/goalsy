@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Task, Task_category, Character } = require('../../models')
+const { Task, Task_category, Character, Inventory } = require('../../models')
 
 router.post('/addTask', async (req, res) => {
    try {
@@ -78,6 +78,36 @@ router.put('/tasks/:id', async (req, res) => {
       res.json(characterUpdate)
    } catch (err) {
       res.status(500).json({ error: 'An error occurred while adding the task' });
+   }
+});
+
+router.put('/shop/:item_id', async (req, res) => {
+   try {
+      // Find item in database
+      // const item = await Item.findOne({
+      //    where: {
+      //       id: req.params.item_id,
+      //    }
+      // });
+
+      // const newItem = {
+      //    item_id: req.params.item_id,
+      //    character_id: 1,
+      //    quantity: 1,
+      // }
+
+      // Find user and inventory
+      const inventory = await Inventory.create({
+         item_id: req.params.item_id,
+         character_id: 1,
+         quantity: 1,
+      });
+
+      console.log(inventory);
+      res.json(inventory);
+
+   } catch (err) {
+      res.status(500).json({ error: 'An error occurred while buying the item'});
    }
 });
 
