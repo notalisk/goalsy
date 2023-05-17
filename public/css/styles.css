@@ -2,6 +2,7 @@
     width: 100px;
 }
 
+
 html {
     width: 100vw;
 }
@@ -118,3 +119,8 @@ html {
  #addTask {
      margin-top: 10px;
  }
+
+#store-coin-img {
+    width: 50px;
+}
+

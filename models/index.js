@@ -39,6 +39,10 @@ Shop.belongsTo(Character, {
     foreignKey: 'character_id'
 });
 
+Shop.hasMany(Item, {
+    foreignKey: 'id',
+});
+
 Character.hasOne(Bank, {
     foreignKey: 'character_id',
     onDelete: 'CASCADE'
@@ -46,6 +50,23 @@ Character.hasOne(Bank, {
 
 Bank.belongsTo(Character, {
     foreignKey: 'character_id'
+});
+
+// Rarity
+Rarity.hasMany(Item, {
+    foreignKey: 'id',
+});
+
+Item.belongsTo(Rarity, {
+    foreignKey: 'rarity_id',
+})
+
+Item_category.hasMany(Item, {
+    foreignKey: 'id',
+});
+
+Item.belongsTo(Item_category, {
+    foreignKey: 'category_id',
 });
 
 module.exports = { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task };

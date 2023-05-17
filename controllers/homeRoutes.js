@@ -12,6 +12,7 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 
+
 router.get('/profile', async (req, res) => {
     try {
         const characterData = await Character.findAll({
