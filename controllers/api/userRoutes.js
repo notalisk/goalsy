@@ -81,6 +81,16 @@ router.put('/tasks/:id', async (req, res) => {
    }
 });
 
+router.post('/logout', (req, res) => {
+   if (req.session.loggedIn) {
+      req.session.destroy(() => {
+         res.status(204).end();
+      });
+   } else {
+      res.status(404).end();
+   }
+});
+
 function getRandomNumber(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
