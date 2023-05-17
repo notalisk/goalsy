@@ -40,7 +40,7 @@ Shop.belongsTo(Character, {
 });
 
 Shop.hasMany(Item, {
-    foreignKey: 'item_id',
+    foreignKey: 'id',
 });
 
 Character.hasOne(Bank, {
@@ -52,11 +52,20 @@ Bank.belongsTo(Character, {
     foreignKey: 'character_id'
 });
 
-Item.hasOne(Rarity, {
-    foreignKey: 'rarity_id',
+// Rarity
+Rarity.hasMany(Item, {
+    foreignKey: 'id',
 });
 
-Item.hasOne(Item_category, {
+Item.belongsTo(Rarity, {
+    foreignKey: 'rarity_id',
+})
+
+Item_category.hasMany(Item, {
+    foreignKey: 'id',
+});
+
+Item.belongsTo(Item_category, {
     foreignKey: 'category_id',
 });
 
