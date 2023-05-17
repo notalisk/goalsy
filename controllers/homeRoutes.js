@@ -31,8 +31,6 @@ router.get('/store', async (req, res) => {
     .then(shopData => {
 
         const items = shopData.map((item_id) => item_id.get({ plain: true }));
-        console.log(JSON.stringify(items));
-        console.log(JSON.stringify(items[0].items[0]))
 
         res.render('store', {items});
     })
