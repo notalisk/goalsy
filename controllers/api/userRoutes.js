@@ -88,6 +88,8 @@ router.post('/logout', (req, res) => {
       });
    } else {
       res.status(404).end();
+   }
+});
 
 router.put('/shop/:item_id', async (req, res) => {
    try {
