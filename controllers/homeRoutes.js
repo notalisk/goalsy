@@ -12,11 +12,13 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
     try {
+        console.log(req.session)
+        const correctCharId = req.session.user_id;
         const characterData = await Character.findAll({
             where: {
-                id: 1
+                id: correctCharId
             },
             include: [
                 {
@@ -25,16 +27,16 @@ router.get('/profile', async (req, res) => {
             ]
         });
 
+        const character = characterData.map(character => character.get({ plain: true }));
+        const correctCharId1 = character[0].id;
+        console.log(character[0].id)
         const taskData = await Task.findAll({
             where: {
-                character_id: 1
-            }
+                character_id: correctCharId1
+            },
         });
 
         const tasks = taskData.map(task => task.get({ plain: true }));
-
-        const character = characterData.map(character => character.get({ plain: true }));
-
         const categories = await Task_category.findAll();
 
         const category = categories.map(category => category.get({ plain: true }));
