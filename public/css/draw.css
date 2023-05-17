@@ -136,16 +136,22 @@ section{
   cursor: pointer;
 }
 
-/* .buttons .undo-button {
-  color: #6C757D;
-  border: 1px solid #6C757D;
-  transition: all 0.3s ease;
-} */
+#undo-btn {
+  background: #4A98F7;
+  border: 1px solid #4A98F7;
+  transition: all 0.7s ease;
+}
+
+#undo-btn:hover {
+  color: #fff;
+  background:  #6C757D
+}
+
 
 .buttons .clear-canvas{
-  color: #6C757D;
-  border: 1px solid #6C757D;
-  transition: all 0.3s ease;
+  background: #4A98F7;
+  border: 1px solid #4A98F7;
+  transition: all 0.7s ease;
 }
 .clear-canvas:hover{
   color: #fff;
@@ -154,7 +160,14 @@ section{
 .buttons .save-img{
   background: #4A98F7;
   border: 1px solid #4A98F7;
+  transition: all 0.7s ease;
 }
+
+.save-img:hover {
+  color: #fff;
+  background: #6C757D;
+}
+
 .drawing-board{
   flex: 1;
   overflow: hidden;
