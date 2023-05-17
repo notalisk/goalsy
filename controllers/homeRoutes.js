@@ -29,9 +29,10 @@ router.get('/store', async (req, res) => {
         ]
     })
     .then(shopData => {
-        console.log(shopData);
+        //console.log(shopData);
 
         const items = shopData.map((item_id) => item_id.get({ plain: true }));
+        console.log(JSON.stringify(items));
 
         res.render('store', {items});
     })

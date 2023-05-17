@@ -40,7 +40,7 @@ Shop.belongsTo(Character, {
 });
 
 Shop.hasMany(Item, {
-    foreignKey: 'item_id',
+    foreignKey: 'id',
 });
 
 Character.hasOne(Bank, {
@@ -57,7 +57,7 @@ Item.hasOne(Rarity, {
 });
 
 Item.hasOne(Item_category, {
-    foreignKey: 'category_id',
+    foreignKey: 'id',
 });
 
 module.exports = { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task };
