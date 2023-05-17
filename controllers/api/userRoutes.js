@@ -81,6 +81,14 @@ router.put('/tasks/:id', async (req, res) => {
    }
 });
 
+router.post('/logout', (req, res) => {
+   if (req.session.loggedIn) {
+      req.session.destroy(() => {
+         res.status(204).end();
+      });
+   } else {
+      res.status(404).end();
+
 router.put('/shop/:item_id', async (req, res) => {
    try {
       // Find item in database
