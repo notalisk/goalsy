@@ -1,0 +1,122 @@
+{{#each character}}
+<div class="d-flex">
+    <div class="character-box col-4">
+        <div class="avatar col-4">
+
+        </div>
+        <div class="character-info">
+            <div class="character-name-level">
+                {{account.username}}
+                Lvl: {{level}}
+            </div>
+            <div class="character-health">
+                Health: {{health}}/50
+            </div>
+            <div class="character-exp">
+                XP: {{xp}}/50
+            </div>
+            <div class="character-stats">Strength: {{strength}}</div>
+            <div class="character-stats">Perception: {{perception}}</div>
+            <div class="character-stats">Intelligence: {{intelligence}}</div>
+            <div class="character-stats">Constitution: {{constitution}}</div>
+        </div>
+    </div>
+    {{/each}}
+    <div class="current-task col-4">
+        {{#if tasks.[0]}}
+        <div class="col-12">
+            <div class="task-id" value="{{tasks.[0].id}}"></div>
+            <div class="task-name">{{tasks.[0].name}}</div>
+            <div class="task-time">Complete in {{tasks.[0].time}} minutes</div>
+            <div class="d-flex flex-direction-row justify-content-around p-3">
+                <button class="start-button"
+                    onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Complete</button>
+                <button class="delete-button"
+                    onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Delete</button>
+            </div>
+            <div id="timer"></div>
+        </div>
+        {{else}}
+        No tasks available.
+        {{/if}}
+    </div>
+    <div class="form-box col-4">
+        <form>
+            <h3>Add new task</h3>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button id="dropdownButton" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Task Category</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category1.name}}')">
+                                {{category1.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category2.name}}')">
+                                {{category2.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category3.name}}')">
+                                {{category3.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category4.name}}')">
+                                {{category4.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category5.name}}')">
+                                {{category5.name}}</a></li>
+                    </ul>
+                </div>
+                <input id="selectedCategoryInput" type="text" class="form-control"
+                    aria-label="Text input with dropdown button" placeholder="Enter your task name here!">
+                <input id="timeInput" type="text" class="form-control" aria-label="Text input for task time"
+                    placeholder="Time to complete in minutes">
+                <div class="input-group-append">
+                    <button id="addTask" class="btn btn-primary" type="button">Add Task</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="d-flex flex-direction-row">
+    <div class="col-4">
+        <h1>Tasks:</h1>
+        {{#each tasks as |task|}}
+        <div class="task-box col-12">
+            <div class="task-id" value="{{task.id}}"></div>
+            <div class="task-name">{{task.name}}</div>
+            <div class="task-time">Complete in {{task.time}} minutes</div>
+            <div class="d-flex flex-direction-row">
+                <button class='delete-button' onclick="deleteTaskHandler('{{task.id}}')">Delete</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="col-8">
+        <h1>Inventory:</h1>
+    </div>
+</div>
+<script>
+    function setSelectedCategory(categoryName) {
+        var dropdownButton = document.getElementById("dropdownButton");
+        dropdownButton.innerText = categoryName;
+        document.getElementById("selectedCategoryInput").setAttribute("title", categoryName);
+    }
+</script>
+<script src="./js/profile.js"></script>
+{{!--
+<script>
+    function startTaskHandler(taskId, taskTime) {
+        var duration = taskTime * 60 * 1000;
+        startTimer(duration);
+    }
+    function startTimer(duration) {
+        var timerElement = document.getElementById("timer");
+        var endTime = Date.now() + duration;
+        var timerInterval = setInterval(function () {
+            var remainingTime = endTime - Date.now();
+            if (remainingTime <= 0) {
+                clearInterval(timerInterval);
+                timerElement.innerText = "Time's up!";
+                health - 5;
+            } else {
+                var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+                timerElement.innerText = minutes + "m " + seconds + "s";
+            }
+        }, 1000);
+    } 
+</script> --}}
