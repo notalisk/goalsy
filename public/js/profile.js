@@ -31,7 +31,7 @@ const deleteTaskHandler = async (event) => {
     if (id === '[object PointerEvent]') {
         return;
     }
-    
+
     document.querySelector('.delete-button').removeEventListener('click', deleteTaskHandler);
 
     const response = await fetch(`/api/users/tasks/${id}`, {
@@ -51,9 +51,26 @@ const deleteTaskHandler = async (event) => {
     }
 };
 
-const startTaskHandler = async (event) => {
+const startTaskHandler = async (id) => {
+    document.querySelector('.start-button').removeEventListener('click', startTaskHandler);
+
+    const response = await fetch(`/api/users/tasks/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            blog: id
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if(response.ok) {
+        alert("You completed a task!");
+        window.location.reload();
+    }
 
 };
+document.querySelector('.start-button').addEventListener('click', startTaskHandler);
+
 document.querySelector('.delete-button').addEventListener('click', deleteTaskHandler);
 
 document.querySelector('#addTask').addEventListener('click', addTaskHandler);
