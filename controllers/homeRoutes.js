@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const path = require('path');
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../models');
-const sequelize = require('../config/connection');
 const { withAuth } = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -12,11 +10,17 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
     try {
+        const findAccount = await Account.findOne({
+            where: {
+                username: req.session.username
+            }
+        })
+
         const characterData = await Character.findAll({
             where: {
-                id: 1
+                account_id: findAccount.dataValues.id
             },
             include: [
                 {
@@ -25,16 +29,16 @@ router.get('/profile', async (req, res) => {
             ]
         });
 
+        const character = characterData.map(character => character.get({ plain: true }));
+        const correctCharId1 = character[0].id;
+
         const taskData = await Task.findAll({
             where: {
-                character_id: 1
-            }
+                character_id: correctCharId1
+            },
         });
 
         const tasks = taskData.map(task => task.get({ plain: true }));
-
-        const character = characterData.map(character => character.get({ plain: true }));
-
         const categories = await Task_category.findAll();
 
         const category = categories.map(category => category.get({ plain: true }));
@@ -67,14 +71,14 @@ router.get('/shop', async (req, res) => {
             }
         ]
     })
-    .then(shopData => {
-        const items = shopData.map((item_id) => item_id.get({ plain: true }));
+        .then(shopData => {
+            const items = shopData.map((item_id) => item_id.get({ plain: true }));
 
-        res.render('store', { items });
-    })
-    .catch(err => {
-        console.log(err);
-    });
+            res.render('store', { items });
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 module.exports = router;

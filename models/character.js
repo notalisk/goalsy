@@ -65,10 +65,6 @@ Character.init(
                 key: 'id',
             },
         },
-        inventory_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
         bag_id: {
             type: DataTypes.INTEGER,
             references: {
