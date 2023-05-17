@@ -9,7 +9,7 @@
         <p>{{item.items.[0].name}}</p>
     </div>
     <!-- Price -->
-    <div class="col">
+    <div class="col d-flex">
         <img src="/images/Goalsy_coin.png" id="store-coin-img">
         <p>{{item.price}}</p>
     </div>
@@ -20,6 +20,10 @@
     <!-- Rarity -->
     <div class="col">
         <p>{{item.items.[0].rarity.name}}</p>
+    </div>
+    <!-- Buy Button -->
+    <div class="col">
+        <button type="button" class="btn btn-primary" onclick="purchase({{item.id}})">Purchase</button>
     </div>
 </div>
 {{/each}}

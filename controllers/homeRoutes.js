@@ -12,7 +12,6 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 
-
 router.get('/profile', async (req, res) => {
     try {
         const characterData = await Character.findAll({
@@ -52,5 +51,30 @@ router.get('/profile', async (req, res) => {
     }
 });
 
+router.get('/store', async (req, res) => {
+    Shop.findAll({
+        include: [
+            {
+                model: Item,
+                include: [
+                    {
+                        model: Rarity,
+                    },
+                    {
+                        model: Item_category,
+                    },
+                ]
+            }
+        ]
+    })
+    .then(shopData => {
+        const items = shopData.map((item_id) => item_id.get({ plain: true }));
+
+        res.render('store', { items });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+});
 
 module.exports = router;
