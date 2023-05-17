@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Account } = require('../../models');
+const { Task, Task_category, Character, Inventory } = require('../../models');
 
 router.post('/', async (req, res) => {
     console.log(req.body)
@@ -62,8 +63,8 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
-const router = require('express').Router();
-const { Task, Task_category, Character, Inventory } = require('../../models')
+
+
 
 router.post('/addTask', async (req, res) => {
    try {
@@ -152,6 +153,7 @@ router.post('/logout', (req, res) => {
       });
    } else {
       res.status(404).end();
+   }});
 
 router.put('/shop/:item_id', async (req, res) => {
    try {
@@ -185,8 +187,7 @@ router.put('/shop/:item_id', async (req, res) => {
 
 function getRandomNumber(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-module.exports = router;
+}
 
 module.exports = router;
