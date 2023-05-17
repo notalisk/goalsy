@@ -51,7 +51,7 @@ router.get('/profile', async (req, res) => {
     }
 });
 
-router.get('/store', async (req, res) => {
+router.get('/shop', async (req, res) => {
     Shop.findAll({
         include: [
             {
