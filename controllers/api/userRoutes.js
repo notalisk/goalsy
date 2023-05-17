@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Task, Task_category } = require('../../models')
 
 router.post('/addTask', async (req, res) => {
-   console.log(req.body);
    try {
       const category = await Task_category.findOne({
          where: {
@@ -11,7 +10,7 @@ router.post('/addTask', async (req, res) => {
       });
    
       await Task.create({
-         name: req.body.name,
+         name: req.body.text,
          time: req.body.time,
          category_id: category.dataValues.id,
          character_id: 1
@@ -23,6 +22,17 @@ router.post('/addTask', async (req, res) => {
    } catch (err) {
       res.status(500).json({ error: 'An error occurred while adding the task' });
    }
+});
+
+router.delete('/tasks/:id', async (req, res) => {
+   console.log(req.params)
+    Task.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(dbTaskData => {
+        res.json(dbTaskData)
+    })
 });
 
 module.exports = router;

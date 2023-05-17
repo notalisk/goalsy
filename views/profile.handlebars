@@ -1,60 +1,78 @@
 {{#each character}}
+<div class="d-flex">
+    <div class="character-box col-4">
+        <div class="avatar col-4">
 
-<div class="character-box">
-    <div class="avatar">
-
+        </div>
+        <div class="character-info">
+            <div class="character-name-level">
+                {{account.username}}
+                Lvl: {{level}}
+            </div>
+            <div class="character-health">
+                Health: {{health}}/50
+            </div>
+            <div class="character-exp">
+                XP: {{xp}}/50
+            </div>
+        </div>
     </div>
-    <div class="character-info">
-        <div class="character-name-level">
-            {{account.username}}
-            Lvl: {{level}}
-        </div>
-        <div class="character-health">
-            Health: {{health}}/50
-        </div>
-        <div class="character-exp">
-            XP: {{xp}}/50
-        </div>
+    {{/each}}
+    <div class="current-task col-4">
+        Current Task Placeholder
+        
+    </div>
+    <div class="form-box col-4">
+        <form>
+            <h3>Add new task</h3>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button id="dropdownButton" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Task Category</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category1.name}}')">
+                                {{category1.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category2.name}}')">
+                                {{category2.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category3.name}}')">
+                                {{category3.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category4.name}}')">
+                                {{category4.name}}</a></li>
+                        <li><a class="dropdown-item" onclick="setSelectedCategory('{{category5.name}}')">
+                                {{category5.name}}</a></li>
+                    </ul>
+                </div>
+                <input id="selectedCategoryInput" type="text" class="form-control"
+                    aria-label="Text input with dropdown button" placeholder="Enter your task name here!">
+                <input id="timeInput" type="text" class="form-control" aria-label="Text input for task time"
+                    placeholder="Time to complete in minutes">
+                <div class="input-group-append">
+                    <button id="addTask" class="btn btn-primary" type="button">Add Task</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
-
-{{/each}}
-
-<form>
-    <h3>Add new task</h3>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <button id="dropdownButton" class="btn btn-outline-secondary dropdown-toggle" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false">Task Category</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" onclick="setSelectedCategory('{{category1.name}}')">
-                        {{category1.name}}</a></li>
-                <li><a class="dropdown-item" onclick="setSelectedCategory('{{category2.name}}')">
-                        {{category2.name}}</a></li>
-                <li><a class="dropdown-item" onclick="setSelectedCategory('{{category3.name}}')">
-                        {{category3.name}}</a></li>
-                <li><a class="dropdown-item" onclick="setSelectedCategory('{{category4.name}}')">
-                        {{category4.name}}</a></li>
-                <li><a class="dropdown-item" onclick="setSelectedCategory('{{category5.name}}')">
-                        {{category5.name}}</a></li>
-            </ul>
+<div class="d-flex flex-direction-row">
+    <div class="col-4">
+        <h1>Tasks:</h1>
+        {{#each tasks as |task|}}
+        <div class="task-box col-12">
+            <div class="task-id" value="{{task.id}}"></div>
+            <div class="task-name">{{task.name}}</div>
+            <div class="task-time">Complete in {{task.time}} minutes</div>
+            <div class="d-flex flex-direction-row">
+                <button class="start-button">Start</button>
+                <button class='delete-button' onclick="deleteTaskHandler('{{task.id}}')">Delete</button>
+            </div>
         </div>
-        <input id="selectedCategoryInput" type="text" class="form-control" aria-label="Text input with dropdown button"
-            placeholder="Enter your task name here!" onclick="replacePlaceholder()">
-            <input id="timeInput" type="text" class="form-control" aria-label="Text input for task time"
-                placeholder="Time to complete in minutes">
-        <div class="input-group-append">
-            <button id="addTask" class="btn btn-primary" type="button">Add Task</button>
-        </div>
+        {{/each}}
     </div>
-
-</form>
-
+    <div class="col-8">
+        <h1>Inventory:</h1>
+    </div>
+</div>
 <script>
-    function replacePlaceholder() {
-        document.getElementById("selectedCategoryInput").setAttribute("placeholder", "");
-    }
-
     function setSelectedCategory(categoryName) {
         var dropdownButton = document.getElementById("dropdownButton");
         dropdownButton.innerText = categoryName;

@@ -31,7 +31,7 @@ router.get('/profile', async (req, res) => {
             }
         });
 
-        const task = taskData.map(task => task.get({ plain: true }));
+        const tasks = taskData.map(task => task.get({ plain: true }));
 
         const character = characterData.map(character => character.get({ plain: true }));
 
@@ -45,9 +45,8 @@ router.get('/profile', async (req, res) => {
         const category4 = category[3];
         const category5 = category[4];
 
-        res.render('profile', { character, category1, category2, category3, category4, category5, task, loggedIn: true });
+        res.render('profile', { character, category1, category2, category3, category4, category5, tasks, loggedIn: true });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });

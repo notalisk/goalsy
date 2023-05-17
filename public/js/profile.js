@@ -2,9 +2,8 @@ const addTaskHandler = async (event) => {
     event.preventDefault();
     const name = document.querySelector('#dropdownButton').textContent;
     const text = document.querySelector('#selectedCategoryInput').value.trim();
-    const minuteTime = document.querySelector('#timeInput').value.trim();
-    const time = minuteTime * 60;
-    
+    const time = document.querySelector('#timeInput').value.trim();
+
     if (name === "Task Category") {
         alert('You must select a category!')
     } else {
@@ -26,5 +25,35 @@ const addTaskHandler = async (event) => {
         }
     }
 };
+
+const deleteTaskHandler = async (event) => {
+    let id = event;
+    if (id === '[object PointerEvent]') {
+        return;
+    }
+    
+    document.querySelector('.delete-button').removeEventListener('click', deleteTaskHandler);
+
+    const response = await fetch(`/api/users/tasks/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+            blog: id
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        window.location.reload();
+    } else {
+        alert(response.statusText);
+    }
+};
+
+const startTaskHandler = async (event) => {
+
+};
+document.querySelector('.delete-button').addEventListener('click', deleteTaskHandler);
 
 document.querySelector('#addTask').addEventListener('click', addTaskHandler);
