@@ -1,15 +1,25 @@
 {{#each items as |item|}}
 <div class="row justify-content-around">
+    <!-- Price -->
     <div class="col">
         <img src="">
     </div>
+    <!-- Name -->
     <div class="col">
-        <p>{{item.Item.name}}</p>
+        <p>{{item.items.[0].name}}</p>
     </div>
+    <!-- Price -->
     <div class="col">
-        <img src="/images/coin-icon.png">
+        <img src="/images/Goalsy_coin.png" id="store-coin-img">
         <p>{{item.price}}</p>
+    </div>
+    <!-- Category -->
+    <div class="col">
+        <p>{{item.items.[0].item_category.name}}</p>
+    </div>
+    <!-- Rarity -->
+    <div class="col">
+        <p>{{item.items.[0].rarity.name}}</p>
     </div>
 </div>
 {{/each}}
-<h1>test</h1>
