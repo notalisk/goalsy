@@ -109,4 +109,8 @@ router.get('/shop', withAuth, async (req, res) => {
     }
 });
 
+router.get('/avatar', async (req, res) => {
+    res.render('avatar');
+});
+
 module.exports = router;
