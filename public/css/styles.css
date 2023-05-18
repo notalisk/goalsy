@@ -293,6 +293,10 @@ label {
     margin-top: 30px;
 }
 
+.shop-item-img {
+    max-width: 100px;
+}
+
 @keyframes colorChange {
     99% {
         color: var(--black);
