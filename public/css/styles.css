@@ -8,11 +8,7 @@
 
 * {
     font-family: 'Oxygen', sans-serif;
-    overflow-x: inherit;
-
 }
-
-main {}
 
 html,
 body {
@@ -81,7 +77,7 @@ html {
 
 .character-box {
     display: flex;
-    background-color: blue;
+    background-color: var(--blue);
     color: white;
     padding: 10px;
     border-radius: 20px;
@@ -93,7 +89,7 @@ html {
 
 .current-task {
     display: flex;
-    background-color: blue;
+    background-color: var(--blue);
     color: white;
     padding: 10px;
     border-radius: 20px;
@@ -128,7 +124,7 @@ html {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: green;
+    background-color: var(--black);
     color: white;
     box-sizing: border-box;
     float: left;
@@ -146,10 +142,16 @@ html {
     padding: 5px 0
 }
 
+.complete-button {
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .delete-button {
     background-color: red;
     color: white;
     border: none;
+    border-radius: 5px;
 }
 
 .form-container {
@@ -164,7 +166,8 @@ html {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    background-color: #f5f5f5;
+    background-color: var(--aqua);
+    color: white;
 }
 
 .spacer {
@@ -192,10 +195,19 @@ a {
 #dropdownButton {
     width: 200px;
     text-align: left;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-.dropdown-menu {
-    width: 200px;
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--blue);
+    color: white;
+    min-width: 200px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
 }
 
 #selectedCategoryInput {
