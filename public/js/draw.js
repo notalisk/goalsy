@@ -175,17 +175,28 @@ clearCanvas.addEventListener("click", () => {
   setCanvasBackground();
 });
 
-// Save function below saves the avatar image created to downloads on users computer and in local storage
-saveImg.addEventListener("click", () => {
+//Save function below saves the avatar image created to downloads on users computer and in local storage
+saveImg.addEventListener("click", async () => {
+  
+  const link = document.createElement("a"); 
+  link.click(); // clicking link to download image
+  const imageData = canvas.toDataURL('image/jpeg').split(',')[1];
   const imageKey = "savedImage";
 
-
-  const link = document.createElement("a"); // creating <a> element
-  link.download = `${Date.now()}.jpg`; // passing current date as link download value
-  link.href = canvas.toDataURL(); // passing canvasData as link href value
-  link.click(); // clicking link to download image
-//The following line saves to local storage also
-  localStorage.setItem(imageKey, link.href);
+   fetch('/api/users/save-image', {
+    method: 'POST',
+    body: imageData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Image saved on the server.');
+      } else {
+        console.error('Failed to save image on the server.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error saving image:', error);
+    });
 });
 
 canvas.addEventListener("mousedown", startDraw);
