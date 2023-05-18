@@ -1,15 +1,19 @@
+// requiring express for router. importing variables
 const router = require('express').Router();
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../models');
 const { withAuth } = require('../utils/auth');
 
+// async function to get router and render homepage
 router.get('/', async (req, res) => {
     res.render('homepage');
 });
 
+// async function for router to get login
 router.get('/login', async (req, res) => {
     res.render('login');
 });
 
+// async function for router to get profile
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const findAccount = await Account.findOne({
@@ -55,6 +59,7 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
+// function for router to get shop information
 router.get('/shop', withAuth, async (req, res) => {
     Shop.findAll({
         include: [

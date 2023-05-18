@@ -2,7 +2,7 @@
 
 ## Description
 
-A fun task list website that gamifies your everyday to-do list. Earn points that you can spend in the shop for cool cosmetics and earn experience to level up your character!
+Goalsy is a  fun and engaging task list app, perfect for keeping you on track in your day to day life. Stay motivated to get stuff done and get rewarded for completing tasks. Spend your rewards in the shop, where you can buy cool new items for your character! We was highly motivated to contribute to this project be we wanted to make a full stack application that will help a user in their everyday life. This application helps users to preform daily task by making it fun and exciting to help user reach GOALS!
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Wire-frame 
 
-![Goalsy-wire-frame](assets/Goalsy-wireframe.png)
+![Goalsy-wire-frame](public/images/Goalsy-wireframe.png)
 
 
 ## Acceptance-criteria
@@ -45,7 +45,8 @@ Ellen Kobly - https://github.com/notalisk
 
 Frankcisco Orona - https://github.com/Oronafrankie87
 
-~Tutorials and documents used for this project linked below.~
+   ~Tutorials and documents followed for this project linked below.~
+
 
 https://getbootstrap.com/
 

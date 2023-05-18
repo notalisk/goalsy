@@ -4,6 +4,7 @@ const addTaskHandler = async (event) => {
     const text = document.querySelector('#selectedCategoryInput').value.trim();
     const time = document.querySelector('#timeInput').value.trim();
 
+    // if statment for task catergory
     if (name === "Task Category") {
         alert('You must select a category!')
     } else {
