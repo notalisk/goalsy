@@ -4,41 +4,36 @@
     </header>
 </div>
 
-<div class="row justify-content-around">
-    <div class="col">
-        <h2>Goalsy</h2>
-        <p>A fun and engaging task list app, perfect for keeping you on track in your day to day life. Stay motivated to get stuff done and get rewarded for completing tasks. Spend your rewards in the shop, where you can buy cool new items for your character!</p>
-    </div>
-    <div class="col">
-        <!-- Create an account -->
-        <form class="form signup-form">
-            <h2>Create an account!</h2>
-            <div class="mb-3">
-                <label for="signup-email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="signup-email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">Enter your email</div>
-            </div>
-            <div class="mb-3">
-                <label for="signup-username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="signup-username" aria-describedby="usernameHelp">
-                <div id="usernameHelp" class="form-text">Choose a unique username</div>
-            </div>
-            <div class="mb-3">
-                <label for="signup-password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="signup-password" aria-describedby="passwordHelp">
-                <div id="passwordHelp" class="form-text">Enter a secure password</div>
-            </div>
-            {{!-- <div class="mb-3">
-                <label for="signup-password-confirm" class="form-label">Confirm Password</label>
-                <input type="text" class="form-control" id="signup-password-confirm" aria-describedby="passwordConfirmHelp">
-                <div id="passwordConfirmHelp" class="form-text">Retype your password</div>
-            </div> --}}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-        <!-- Or log in -->
-        <h5 class="text-center">or</h5>
-        <a class="btn btn-primary w-100" href="/login">Login</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col desc">
+            <h2>Goalsy</h2>
+            <p>A fun and engaging task list app, perfect for keeping you on track in your day to day life. Stay
+                motivated to get stuff done and get rewarded for completing tasks. Spend your rewards in the shop, where
+                you can buy cool new items for your character!</p>
+        </div>
+        <div class="col signup">
+            <form class="form signup-form">
+                <h2>Create an account!</h2>
+                <div class="mb-3">
+                    <label for="signup-email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="signup-email" aria-describedby="emailHelp" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="signup-username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="signup-username" aria-describedby="usernameHelp" placeholder="Choose a unique username">
+                </div>
+                <div class="mb-3">
+                    <label for="signup-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signup-password" aria-describedby="passwordHelp" placeholder="Enter a secure password">
+                </div>
+                <div class="text-center"> <!-- Added text-center class here -->
+                    <button type="submit" class="btn btn-primary submit-button">Submit</button>
+                    <h5>OR</h5>
+                    <a class="btn btn-primary login-button" href="/login">Login</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

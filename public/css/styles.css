@@ -2,8 +2,23 @@
     --light: #F8F4E3;
     --aqua: #0FA3B1;
     --black: #332E3C;
-    --pink: #C884A6;
+    --pink: #AA767C;
     --blue: #003554;
+}
+
+html,
+body {
+    background-color: var(--light);
+}
+
+.submit-button {
+    background-color: var(--blue);
+    min-width: 150px;
+}
+
+.login-button {
+    background-color: var(--blue);
+    min-width: 150px;
 }
 
 #nav-logo {
@@ -12,6 +27,26 @@
 
 html {
     width: 100vw;
+}
+
+.desc {
+    margin: 10vw 2vw 0 2vw;
+    color: var(--black);
+    width: 50vw;
+}
+
+.signup {
+    width: 50vw;
+    background-color: var(--pink);
+    border-radius: 20px;
+    margin: 20px 40px 0 20px;
+    padding: 20px 0;
+}
+
+.signup-form {
+    color: var(--black);
+    margin: 0 2vw 0 2vw;
+    border-color: var(--black);
 }
 
 .character-box {
