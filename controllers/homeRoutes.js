@@ -20,7 +20,7 @@ router.get('/profile', withAuth, async (req, res) => {
             where: {
                 username: req.session.username
             }
-        })
+        });
 
         const characterData = await Character.findAll({
             where: {
@@ -42,6 +42,29 @@ router.get('/profile', withAuth, async (req, res) => {
             },
         });
 
+        const inventoryData = await Inventory.findAll({
+            where: {
+                character_id: correctCharId1
+            }
+        });
+
+        const inventory = inventoryData.map(inventory => inventory.get({ plain: true }));
+        
+        const itemIds = [];
+        if (inventory) {
+            for (const el of inventory) {
+                itemIds.push(el.item_id);
+            }
+        }
+
+        const itemData = await Item.findAll({
+            where: {
+                id: itemIds
+            }
+        });
+
+        const items = itemData.map(item => item.get({ plain: true }))
+
         const tasks = taskData.map(task => task.get({ plain: true }));
         const categories = await Task_category.findAll();
 
@@ -53,7 +76,7 @@ router.get('/profile', withAuth, async (req, res) => {
         const category4 = category[3];
         const category5 = category[4];
 
-        res.render('profile', { character, category1, category2, category3, category4, category5, tasks, loggedIn: true });
+        res.render('profile', { character, category1, category2, category3, category4, category5, tasks, items, loggedIn: true });
     } catch (err) {
         res.status(500).json(err);
     }

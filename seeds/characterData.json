@@ -11,18 +11,5 @@
         "account_id": 1,
         "inventory_id": 1,
         "bag_id": 1
-    },
-    {
-        "level": 1,
-        "health": 50,
-        "xp": 0,
-        "gold": 10,
-        "strength": 100,
-        "perception": 1,
-        "intelligence": 1,
-        "constitution": 1,
-        "account_id": 2,
-        "inventory_id": 2,
-        "bag_id": 2
     }
 ]
