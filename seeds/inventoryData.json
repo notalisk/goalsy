@@ -6,7 +6,12 @@
     },
     {
         "quantity": 1,
-        "character_id": 2,
-        "item_id": 5
+        "character_id": 1,
+        "item_id": 6
+    },
+    {
+        "quantity": 1,
+        "character_id": 1,
+        "item_id": 11
     }
 ]
