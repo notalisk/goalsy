@@ -61,29 +61,79 @@ router.get('/profile', withAuth, async (req, res) => {
 
 // function for router to get shop information
 router.get('/shop', withAuth, async (req, res) => {
-    Shop.findAll({
-        include: [
-            {
-                model: Item,
-                include: [
-                    {
-                        model: Rarity,
-                    },
-                    {
-                        model: Item_category,
-                    },
-                ]
+    try {
+        const findAccount = await Account.findOne({
+            where: {
+                username: req.session.username
             }
-        ]
-    })
-        .then(shopData => {
-            const items = shopData.map((item_id) => item_id.get({ plain: true }));
-
-            res.render('store', { items });
-        })
-        .catch(err => {
-            console.log(err);
         });
+
+        const characterData = await Character.findAll({
+            where: {
+                account_id: findAccount.dataValues.id
+            },
+            include: [
+                {
+                    model: Account,
+                }
+            ]
+        });
+
+        const shopData = await Shop.findAll({
+            include: [
+                {
+                    model: Item,
+                    include: [
+                        {
+                            model: Rarity,
+                        },
+                        {
+                            model: Item_category,
+                        },
+                    ]
+                }
+            ]
+        });
+
+        const character = characterData.map(character => character.get({ plain: true }));
+
+        console.log(character);
+
+        const characterGold = character[0].gold;
+        const username = character[0].account.username;
+
+        console.log(username);
+
+        const items = shopData.map(item_id => item_id.get({ plain: true }));
+
+        res.render('store', { items, characterGold, username });
+
+    } catch (err) {
+        console.log(err);
+    }
+    // Shop.findAll({
+    //     include: [
+    //         {
+    //             model: Item,
+    //             include: [
+    //                 {
+    //                     model: Rarity,
+    //                 },
+    //                 {
+    //                     model: Item_category,
+    //                 },
+    //             ]
+    //         }
+    //     ]
+    // })
+    //     .then(shopData => {
+    //         const items = shopData.map((item_id) => item_id.get({ plain: true }));
+
+    //         res.render('store', { items });
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     });
 });
 
 module.exports = router;
