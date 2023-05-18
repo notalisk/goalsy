@@ -6,6 +6,16 @@
     --blue: #003554;
 }
 
+* {
+    font-family: 'Oxygen', sans-serif;
+    overflow-x:inherit;
+   
+}
+
+main {
+
+}
+
 html,
 body {
     background-color: var(--light);
@@ -26,7 +36,16 @@ body {
     width: 100px;
 }
 
+#goalsy {
+    text-shadow: 2px 2px 2px rgba(122, 119, 119, 0.637);
+    position: relative;
+    left: 14vw;
+    top: 7vw;
+    font-family: 'Shadows Into Light', cursive;
+}
+
 html {
+    overflow-x: visible;
     width: 100vw;
 }
 
@@ -46,7 +65,7 @@ html {
 
 .signup-form {
     color: var(--black);
-    margin: 0 2vw 0 2vw;
+    margin: 0 5vw 0 5vw;
     border-color: var(--black);
 }
 
@@ -139,7 +158,18 @@ html {
 }
 
 .spacer {
-    min-height: 100px;
+    min-height: 75px;
+    overflow-x: auto;
+}
+
+p {
+    line-height: 2;
+    text-indent: 10%;
+ 
+}
+
+h1, h2, h3, h4, h5 , h6, p, a {
+    overflow-x:visible;
 }
 
 #dropdownButton {
@@ -191,7 +221,7 @@ label {
     }
 
     100% {
-        box-shadow: 0 0 20px 20px rgba(255, 153, 0, 0.5);
+        box-shadow: 0 0 25px 20px rgba(255, 208, 0, 0.5);
     }
 }
 
@@ -202,7 +232,7 @@ label {
     }
 
     100% {
-        top: 15%;
+        top: 20%;
         left: 48%;
         transform: translateX(-75%);
     }
