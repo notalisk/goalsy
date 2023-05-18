@@ -29,11 +29,49 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Upon going to the Taskify website, sign up to create an account or login.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+![alt text](public/images/signup-page.png)
 
-![alt text](assets/images/screenshot.png)
+ After logging into your account you can add a task by clicking onto the task category drop down. After clicking the drop down you'll see these categories: Health and Wellness, Cleaning, School, Workout, and Creative. 
+ 
+ ![alt text](public/images/dropdown.png)
+
+ Once you have selected a category you'll be able to enter your task name and the time to complete in minutes.
+ 
+ ![alt text](public/images/name-and-time.png)
+ 
+  After you have made your entries you click the 'Task On!' button. You will be prompted with a note that says 'Task added successfully'.
+  
+ ![alt text](public/images/taskb.png)
+  
+   After acknowledging the prompt the task will have a section under 'Task'.
+   
+ ![alt text](public/images/addedtask.png)
+   
+ If the task was added my mistake you can click the delete button in the task section.
+    
+ ![alt text](public/images/delete-b.png)
+    
+  Click task complete when you complete your task.
+
+ ![alt text](public/images/complete.png)
+     
+  If you can't do the task or give up you can click 'I can't do it!' and that task will be deleted.
+    
+   ![alt text](public/images/i-can't.png)
+    
+   In the navagation bar beside Super Goalsy there is a 'shop' button that you can click that brings you to a page where you can buy Weapons, Armor, and Jewelry.
+     
+   ![alt text](public/images/shop.png)
+     
+   These items can be purchased with the coins you earned from completing task.
+      
+   ![alt text](public/images/shop-page.png)
+
+   Once you're done making purchases you can navigate back to your profile by clicking onto the profile button in the navigation bar so you can continue completing task!
+
+![alt text](public/images/proflie-b.png)
 
 ## Credits
 
@@ -52,6 +90,10 @@ https://getbootstrap.com/
 
 https://lucid.app/documents#/documents?folder_id=recent
 
+https://www.npmjs.com/package/html-to-image
+
+
+
 ## License
 
 MIT License is included in this project. Please refer to the repository for more information.
@@ -59,3 +101,5 @@ MIT License is included in this project. Please refer to the repository for more
 
 
 ## Webpage
+
+![alt text](assets/images/screenshot.png)
