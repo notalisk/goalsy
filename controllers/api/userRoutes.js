@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
       });
       // if error happens, catch it and throw a 400 code 
    } catch (err) {
+      console.log(err)
       res.status(400).json(err);
    }
 });
