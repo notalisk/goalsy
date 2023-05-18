@@ -124,43 +124,20 @@ router.get('/shop', withAuth, async (req, res) => {
 
         const character = characterData.map(character => character.get({ plain: true }));
 
-        console.log(character);
-
         const characterGold = character[0].gold;
         const username = character[0].account.username;
-
-        console.log(username);
 
         const items = shopData.map(item_id => item_id.get({ plain: true }));
 
         res.render('store', { items, characterGold, username });
 
     } catch (err) {
-        console.log(err);
+        res.status(500).json(err);
     }
-    // Shop.findAll({
-    //     include: [
-    //         {
-    //             model: Item,
-    //             include: [
-    //                 {
-    //                     model: Rarity,
-    //                 },
-    //                 {
-    //                     model: Item_category,
-    //                 },
-    //             ]
-    //         }
-    //     ]
-    // })
-    //     .then(shopData => {
-    //         const items = shopData.map((item_id) => item_id.get({ plain: true }));
+});
 
-    //         res.render('store', { items });
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+router.get('/avatar', async (req, res) => {
+    res.render('avatar');
 });
 
 module.exports = router;
