@@ -3,6 +3,7 @@ const router = require('express').Router();
 const fs = require('fs');
 // imports
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../../models');
+const { withAuth } = require('../../utils/auth');
 
 // router signup function for creating an account
 router.post('/', async (req, res) => {
@@ -210,7 +211,7 @@ router.put('/shop/:item_id', async (req, res) => {
    }
 });
 
-router.post('/save-image', (req, res) => {
+router.post('/save-image', withAuth, (req, res) => {
    let data = '';
 
    // Receive the image data
