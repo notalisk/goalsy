@@ -1,21 +1,22 @@
 <div class="container-fluid">
     <header>
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <img class="" id="nav-logo" src="/images/Goalsy-logo1.png" alt="Goalsy logo1">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Profile</a>
-                <a class="nav-link" href="/shop">Shop</a>
-                <a class="nav-link" id="logout" href="/">Logout</a>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <img class="" id="nav-logo" src="/images/Goalsy-logo1.png" alt="Goalsy logo1">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                        <a class="nav-link" href="/shop">Shop</a>
+                        <a class="nav-link" id="logout" href="/">Logout</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</nav>
+        </nav>
     </header>
 </div>
 
@@ -50,10 +51,10 @@
             <div class="task-name">{{tasks.[0].name}}</div>
             <div class="task-time">Complete in {{tasks.[0].time}} minute(s)</div>
             <div class="d-flex flex-direction-row justify-content-around p-3">
-                <button class="complete-button"
-                    onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Task Complete!</button>
-                <button class="delete-button"
-                    onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">I can't do it!</button>
+                <button class="complete-button" onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Task
+                    Complete!</button>
+                <button class="delete-button" onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">I
+                    can't do it!</button>
             </div>
             <div id="timer"></div>
         </div>
@@ -141,4 +142,4 @@
             }
         }, 1000);
     } 
-</script> --}} 
+</script> --}}
