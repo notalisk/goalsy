@@ -1,24 +1,42 @@
-<img class="" id="nav-logo" src="/images/Goalsy-logo.png" alt="Goalsy logo">
-<div class="row justify-content-around">
-    <!-- Form to log in -->
-    <form class="form login-form">
-        <h2>Login to your account</h2>
-        <div class="mb-3">
-            <label for="login-username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="login-username" aria-describedby="usernameHelp">
-            <div id="usernameHelp" class="form-text">Enter your username</div>
+<img class="logo" id="nav-logo" src="/images/Goalsy-logo1.png" alt="Goalsy logo1">
+<div class="container">
+    <div class="row justify-content-center align-content-center">
+        <div class="col-6">
+            <div class="login backlit1">
+                <!-- Form to log in -->
+                <form class="form login-form">
+                    <h2 id="login">Login to get stuff done!</h2>
+                    <div class="mb-3">
+                        <label for="login-username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="login-username" aria-describedby="usernameHelp"
+                            placeholder="Enter your username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="login-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="login-password" aria-describedby="passwordHelp"
+                            placeholder="Enter your password">
+                    </div>
+                    <div class="text-center"> <!-- Added text-center class -->
+                        <button type="submit" id="password-label" class="btn btn-primary login-button">Login</button>
+                    </div>
+                </form>
+                <!-- Or create an account -->
+                <div class="text-center">
+                    <button class="btn btn-primary login-button" onclick="location.href='/';">Sign Up</button>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="login-password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="login-password" aria-describedby="passwordHelp">
-            <div id="passwordHelp" class="form-text">Enter your password</div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <!-- Or create an account -->
-    <h5 class="text-center">or</h5>
-    <a class="btn btn-primary w-100" href="/">Create an account</a>
+    </div>
 </div>
 
 <script src="./js/login.js"></script>
+<script>
+    setTimeout(function () {
+        var loginTitle = document.getElementById('login');
+        loginTitle.style.color = 'white';
+        var usernameLabel = document.getElementById('username-label');
+        var passwordLabel = document.getElementById('password-label');
+        usernameLabel.classList.add('color-change');
+        passwordLabel.classList.add('color-change');
+    }, 2200);
+</script>

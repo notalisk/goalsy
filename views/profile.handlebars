@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <header>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <img class="" id="nav-logo" src="/images/Goalsy-logo.png" alt="Goalsy logo">
+        <img class="" id="nav-logo" src="/images/Goalsy-logo1.png" alt="Goalsy logo1">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                 Lvl: {{level}}
             </div>
             <div class="character-health">
-                Health: {{health}}/50
+                Health: {{health}}/{{health}}
             </div>
             <div class="character-exp">
                 XP: {{xp}}/50
@@ -48,12 +48,12 @@
         <div class="col-12">
             <div class="task-id" value="{{tasks.[0].id}}"></div>
             <div class="task-name">{{tasks.[0].name}}</div>
-            <div class="task-time">Complete in {{tasks.[0].time}} minutes</div>
+            <div class="task-time">Complete in {{tasks.[0].time}} minute(s)</div>
             <div class="d-flex flex-direction-row justify-content-around p-3">
-                <button class="start-button"
-                    onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Complete</button>
+                <button class="complete-button"
+                    onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Task Complete!</button>
                 <button class="delete-button"
-                    onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Delete</button>
+                    onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">I can't do it!</button>
             </div>
             <div id="timer"></div>
         </div>
@@ -63,10 +63,10 @@
     </div>
     <div class="form-box col-4">
         <form>
-            <h3>Add new task</h3>
+            <h3>Add a task</h3>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <button id="dropdownButton" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                    <button id="dropdownButton" class="btn-outline-lightbtn dropdown-toggle text-center" type="button"
                         data-bs-toggle="dropdown" aria-expanded="false">Task Category</button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" onclick="setSelectedCategory('{{category1.name}}')">
@@ -86,7 +86,7 @@
                 <input id="timeInput" type="text" class="form-control" aria-label="Text input for task time"
                     placeholder="Time to complete in minutes">
                 <div class="input-group-append">
-                    <button id="addTask" class="btn btn-primary" type="button">Add Task</button>
+                    <button id="addTask" class="btn btn-primary" type="button">Task On!</button>
                 </div>
             </div>
         </form>
@@ -99,7 +99,7 @@
         <div class="task-box col-12">
             <div class="task-id" value="{{task.id}}"></div>
             <div class="task-name">{{task.name}}</div>
-            <div class="task-time">Complete in {{task.time}} minutes</div>
+            <div class="task-time">Complete in {{task.time}} minute(s)</div>
             <div class="d-flex flex-direction-row">
                 <button class='delete-button' onclick="deleteTaskHandler('{{task.id}}')">Delete</button>
             </div>

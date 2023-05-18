@@ -60,7 +60,7 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 // function for router to get shop information
-router.get('/shop', async (req, res) => {
+router.get('/shop', withAuth, async (req, res) => {
     Shop.findAll({
         include: [
             {
