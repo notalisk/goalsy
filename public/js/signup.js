@@ -5,6 +5,7 @@ const signupFormHandler = async (event) => {
     const username = document.querySelector('#signup-username').value.trim();
     const password = document.querySelector('#signup-password').value.trim();
 
+    // user must signup with email username and password
     if (email && username && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
@@ -13,8 +14,10 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
+            // if the user signs up correctly they will be dirceted to profile page
             document.location.replace('/profile');
         } else {
+            // if sign up fails they will get a alert
             alert(response.statusText);
         }
     }

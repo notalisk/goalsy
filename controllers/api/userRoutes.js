@@ -1,6 +1,9 @@
+// requiring express for router
 const router = require('express').Router();
+// imports
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../../models');
 
+// router signup function for creating an account
 router.post('/', async (req, res) => {
    try {
       const accountData = await Account.create(req.body);
@@ -17,13 +20,16 @@ router.post('/', async (req, res) => {
          req.session.username = accountData.username;
          req.session.logged_in = true;
 
+         // status 200 if status is okay
          res.status(200).json(accountData);
       });
+      // if error happens, catch it and throw a 400 code 
    } catch (err) {
       res.status(400).json(err);
    }
 });
 
+// router function for login
 router.post('/login', async (req, res) => {
    try {
       const userData = await Account.findOne({ where: { username: req.body.username } });
@@ -56,6 +62,7 @@ router.post('/login', async (req, res) => {
    }
 });
 
+// router function for logout
 router.post('/logout', (req, res) => {
    if (req.session.logged_in) {
       req.session.destroy(() => {
@@ -66,6 +73,7 @@ router.post('/logout', (req, res) => {
    }
 });
 
+// router function for adding task
 router.post('/addTask', async (req, res) => {
    try {
       const category = await Task_category.findOne({
@@ -100,6 +108,7 @@ router.post('/addTask', async (req, res) => {
    }
 });
 
+// router function for deleting task
 router.delete('/tasks/:id', async (req, res) => {
    Task.destroy({
       where: {
@@ -157,6 +166,7 @@ router.put('/tasks/:id', async (req, res) => {
    }
 });
 
+// destroy session function
 router.post('/logout', (req, res) => {
    if (req.session.loggedIn) {
       req.session.destroy(() => {
@@ -167,6 +177,7 @@ router.post('/logout', (req, res) => {
    }
 });
 
+// router function for shop items
 router.put('/shop/:item_id', async (req, res) => {
    try {
       // Find item in database
