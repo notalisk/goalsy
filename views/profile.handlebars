@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <header>
+<header>
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <img class="" id="nav-logo" src="/images/Goalsy-logo1.png" alt="Goalsy logo1">
@@ -17,14 +17,14 @@
                 </div>
             </div>
         </nav>
-    </header>
-</div>
+    </div>
+</header>
 
 {{#each character}}
-<div class="d-flex">
+<div class="d-flex justify-content-around">
     <div class="character-box col-4">
         <div class="avatar col-4">
-        <img src="./avatar/{{account.username}}.jpg">
+            <img src="./avatar/{{account.username}}.jpg" class="avatar">
         </div>
         <div class="character-info">
             <div class="character-name-level">
@@ -99,24 +99,39 @@
         </form>
     </div>
 </div>
-<div class="d-flex flex-direction-row">
-    <div class="col-4">
-        <h1>Tasks:</h1>
-        {{#each tasks as |task|}}
-        <div class="task-box col-12">
-            <div class="task-id" value="{{task.id}}"></div>
-            <div class="task-name">{{task.name}}</div>
-            <div class="task-time">Complete in {{task.time}} minute(s)</div>
-            <div class="d-flex flex-direction-row">
-                <button class='delete-button' onclick="deleteTaskHandler('{{task.id}}')">Delete</button>
+<div class="row justify-content-around">
+    <div class="bordered-box col-4">
+        <div class="col-12 text-center">
+            <h1>Task List</h1>
+            {{#each tasks as |task|}}
+            <div class="task-box col-8 mx-auto">
+                <div class="task-id" value="{{task.id}}"></div>
+                <div class="task-name">{{task.name}}</div>
+                <div class="task-time">Complete in {{task.time}} minute(s)</div>
+                <div class="d-flex flex-direction-row">
+                    <button class='delete-button' onclick="deleteTaskHandler('{{task.id}}')">Delete</button>
+                </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-    <div class="col-8">
-        <h1>Inventory:</h1>
+    <div class="col-6 bordered-box text-center">
+        <h1>Inventory</h1>
+        <div class="row">
+            {{#each items as |item|}}
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        {{item.name}}
+                        <img class="item" src="./images/{{item.id}}.png">
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </div>
 </div>
+
 <script>
     function setSelectedCategory(categoryName) {
         var dropdownButton = document.getElementById("dropdownButton");

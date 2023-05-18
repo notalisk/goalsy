@@ -53,7 +53,7 @@ const deleteTaskHandler = async (event) => {
 };
 
 const startTaskHandler = async (id) => {
-    document.querySelector('.start-button').removeEventListener('click', startTaskHandler);
+    document.querySelector('.complete-button').removeEventListener('click', startTaskHandler);
 
     const response = await fetch(`/api/users/tasks/${id}`, {
         method: 'PUT',
