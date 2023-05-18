@@ -28,51 +28,50 @@ What are the steps required to install your project? Provide a step-by-step desc
 ## Acceptance-criteria
 
 ## Usage
-![alt text](assets/images/screenshot.png)
 
 Upon going to the Taskify website, sign up to create an account or login.
 
-![alt text](assets/images/screenshot.png)
+![alt text](public/images/signup-page.png)
 
  After logging into your account you can add a task by clicking onto the task category drop down. After clicking the drop down you'll see these categories: Health and Wellness, Cleaning, School, Workout, and Creative. 
  
- ![alt text](assets/images/screenshot.png)
+ ![alt text](public/images/dropdown.png)
 
  Once you have selected a category you'll be able to enter your task name and the time to complete in minutes.
  
- ![alt text](assets/images/screenshot.png)
+ ![alt text](public/images/name-and-time.png)
  
   After you have made your entries you click the 'Task On!' button. You will be prompted with a note that says 'Task added successfully'.
   
- ![alt text](assets/images/screenshot.png)
+ ![alt text](public/images/taskb.png)
   
    After acknowledging the prompt the task will have a section under 'Task'.
    
- ![alt text](assets/images/screenshot.png)
+ ![alt text](public/images/addedtask.png)
    
  If the task was added my mistake you can click the delete button in the task section.
     
- ![alt text](assets/images/screenshot.png)
+ ![alt text](public/images/delete-b.png)
     
   Click task complete when you complete your task.
 
- ![alt text](assets/images/screenshot.png)
+ ![alt text](public/images/complete.png)
      
   If you can't do the task or give up you can click 'I can't do it!' and that task will be deleted.
     
-   ![alt text](assets/images/screenshot.png)
+   ![alt text](public/images/i-can't.png)
     
    In the navagation bar beside Super Goalsy there is a 'shop' button that you can click that brings you to a page where you can buy Weapons, Armor, and Jewelry.
      
-   ![alt text](assets/images/screenshot.png)
+   ![alt text](public/images/shop.png)
      
    These items can be purchased with the coins you earned from completing task.
       
-   ![alt text](assets/images/screenshot.png)
+   ![alt text](public/images/shop-page.png)
 
    Once you're done making purchases you can navigate back to your profile by clicking onto the profile button in the navigation bar so you can continue completing task!
 
-![alt text](assets/images/screenshot.png)
+![alt text](public/images/proflie-b.png)
 
 ## Credits
 
@@ -91,6 +90,10 @@ https://getbootstrap.com/
 
 https://lucid.app/documents#/documents?folder_id=recent
 
+https://www.npmjs.com/package/html-to-image
+
+
+
 ## License
 
 MIT License is included in this project. Please refer to the repository for more information.
@@ -98,3 +101,5 @@ MIT License is included in this project. Please refer to the repository for more
 
 
 ## Webpage
+
+![alt text](assets/images/screenshot.png)
