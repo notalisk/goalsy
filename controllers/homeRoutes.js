@@ -13,6 +13,10 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 
+router.get('/avatar', async (req, res) => {
+    res.render('draw');
+});
+
 // async function for router to get profile
 router.get('/profile', withAuth, async (req, res) => {
     try {
