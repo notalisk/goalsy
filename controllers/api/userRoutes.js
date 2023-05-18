@@ -181,30 +181,64 @@ router.post('/logout', (req, res) => {
 // router function for shop items
 router.put('/shop/:item_id', async (req, res) => {
    try {
-      // Find item in database
-      // const item = await Item.findOne({
-      //    where: {
-      //       id: req.params.item_id,
-      //    }
-      // });
-
-      // const newItem = {
-      //    item_id: req.params.item_id,
-      //    character_id: 1,
-      //    quantity: 1,
-      // }
-
-      // Find user and inventory
-      const inventory = await Inventory.create({
-         item_id: req.params.item_id,
-         character_id: 1,
-         quantity: 1,
+      // find the account
+      const findAccount = await Account.findOne({
+         where: {
+             username: req.session.username
+         }
       });
 
-      console.log(inventory);
-      res.json(inventory);
+      // get the character
+      const characterData = await Character.findOne({
+         where: {
+            account_id: findAccount.dataValues.id
+         },
+         include: [
+            {
+               model: Account,
+            }
+         ]
+      });
+
+      // Get the item
+      const itemData = await Item.findOne({
+         where: {
+            id: req.params.item_id
+         }
+      });
+
+      console.log(itemData.dataValues.cost);
+
+      if (characterData.dataValues.gold >= itemData.dataValues.cost) {
+         const inventory = await Inventory.create({
+            item_id: req.params.item_id,
+            character_id: characterData.dataValues.id,
+            quantity: 1,
+         });
+
+         const characterObject = characterData.toJSON();
+
+         let updatedChar = characterObject;
+
+         updatedChar.gold -= itemData.dataValues.cost;
+
+         console.log(updatedChar.gold);
+
+
+         const updateGold = await Character.update(updatedChar, {
+               where: {
+                  id: characterObject.id
+               }
+            }
+         );
+
+         res.json({ inventory, updateGold });
+      } else {
+         res.status(500).json({ error: 'You cannot afford this item'});
+      }
 
    } catch (err) {
+      console.log(err);
       res.status(500).json({ error: 'An error occurred while buying the item' });
    }
 });
