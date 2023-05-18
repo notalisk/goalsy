@@ -1,5 +1,6 @@
 {
     "name": "taskify",
+    "type": "module",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
@@ -19,8 +20,9 @@
         "express": "^4.17.1",
         "express-handlebars": "^5.2.0",
         "express-session": "^1.17.1",
+        "html-to-image": "^1.11.11",
         "mysql2": "^2.2.5",
-        "sequelize": "^6.3.5"
+        "sequelize": "^6.31.1"
     },
     "devDependencies": {
         "eslint": "^7.12.1",

@@ -1,3 +1,9 @@
+// let htmlToImage = require('html-to-image');
+// import * as htmlToImage from "html-to-image";
+// import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
+// let express = require ();
+
+
 const canvas = document.querySelector("canvas");
 const toolBtns = document.querySelectorAll(".tool");
 const fillColor = document.querySelector("#fill-color");
@@ -5,7 +11,7 @@ const sizeSlider = document.querySelector("#size-slider");
 const colorBtns = document.querySelectorAll(".colors .option");
 const colorPicker = document.querySelector("#color-picker");
 const clearCanvas = document.querySelector(".clear-canvas");
-const saveImg = document.querySelector(".save-img");
+const saveImg = document.querySelector("#saveImg");
 const ctx = canvas.getContext("2d");
 const undoBtn = document.querySelector("#undo-btn");
 let undoIndex = -1;
@@ -14,12 +20,12 @@ let shapes = [];
 
 // global variables with default value
 let prevMouseX,
-  prevMouseY,
-  snapshot,
-  isDrawing = false,
-  selectedTool = "brush",
-  brushWidth = 5,
-  selectedColor = "#000";
+prevMouseY,
+snapshot,
+isDrawing = false,
+selectedTool = "brush",
+brushWidth = 5,
+selectedColor = "#000";
 
 const setCanvasBackground = () => {
   // setting whole canvas background to white, so the downloaded img background will be white
@@ -76,7 +82,7 @@ const drawTriangle = (e) => {
 //Undo function adds a click event to the undoBtn element, If the undo button is clicked it checks if undoIndex is greater than or equal to 0.  If it is, it decrements the undoIndex by 1
 undoBtn.addEventListener("click", () => {
   if (undoIndex >= 0) {
-    undoIndex--;
+    
     //THis then clears the entire canvas by usning ctx.clearRect() method,(from Stackoverflow methods).  This method sets the canvas content to transparent.
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //then it retrieves a single shape from the shapes array using array.slice method(shapes.slice), with undoIndex as the start index and undoIndex + 1 as the end index
@@ -84,6 +90,8 @@ undoBtn.addEventListener("click", () => {
       //Then it iterates over the retrieved shape(s) and uses ctx.putImageData() method to put the shapes(s) back onto the canvas at position (0,0) effectively undoing the last drawn shape
       ctx.putImageData(shape, 0, 0);
     });
+    undoIndex--;
+
   }
 });
 
@@ -94,6 +102,8 @@ const saveCanvasState = () => {
   undoIndex++;
   shapes.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); // Save the current shape to the shapes array
 };
+
+
 
 const startDraw = (e) => {
   isDrawing = true;
@@ -165,14 +175,16 @@ clearCanvas.addEventListener("click", () => {
   setCanvasBackground();
 });
 
-//Save function below saves the avatar image created to downloads on users computer and in local storage
+// Save function below saves the avatar image created to downloads on users computer and in local storage
 saveImg.addEventListener("click", () => {
+  const imageKey = "savedImage";
+
+
   const link = document.createElement("a"); // creating <a> element
   link.download = `${Date.now()}.jpg`; // passing current date as link download value
   link.href = canvas.toDataURL(); // passing canvasData as link href value
   link.click(); // clicking link to download image
-  const imageKey = "savedImage";
-//The following line saves to local storage also    
+//The following line saves to local storage also
   localStorage.setItem(imageKey, link.href);
 });
 
