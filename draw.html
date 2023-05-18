@@ -20,7 +20,7 @@
           <label class="title">Shapes</label>
           <ul class="options">
             <li class="option tool" id="rectangle">
-              <img src="icons/rectangle.svg" alt="">
+              <img src="square" alt="">
               <span>◻ Square</span>
             </li>
             <li class="option tool" id="circle">
@@ -68,14 +68,15 @@
         <div class="row buttons">
           <button id="undo-btn">Undo</button>
           <button class="clear-canvas">Clear Canvas</button>
-          <button class="save-img">Save Avatar</button>
+          <button id="saveImg">Save Avatar</button>
         </div>
       </section>
       <section class="drawing-board">
         <canvas></canvas>
       </section>
     </div>
-    <script src="./public/js/draw.js"></script>
-    
+    <script src="/public/js/draw.js" type="module"></script>
+    <script src="https://unpkg.com/html-to-image@latest" type="module"></script>
+
   </body>
 </html>
