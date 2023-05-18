@@ -293,6 +293,10 @@ label {
     margin-top: 30px;
 }
 
+.shop-item-img {
+    max-width: 100px;
+}
+
 @keyframes colorChange {
     99% {
         color: var(--black);
@@ -376,11 +380,10 @@ header {
 }
 
 body{
- 
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #4A98F7;
+  background: var(--light);
 }
 .container{
   display: flex;
