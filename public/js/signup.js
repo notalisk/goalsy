@@ -15,7 +15,7 @@ const signupFormHandler = async (event) => {
 
         if (response.ok) {
             // if the user signs up correctly they will be dirceted to profile page
-            document.location.replace('/profile');
+            document.location.replace('/avatar');
         } else {
             // if sign up fails they will get a alert
             alert(response.statusText);

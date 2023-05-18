@@ -32,6 +32,7 @@
                 Lvl: {{level}}
             </div>
             <div class="character-health">
+                {{!-- {{> character-details}} --}}
                 Health: {{health}}/{{health}}
                 <img src="./images/Heart_Goalsy1.png" id="heart-img">
             </div>
@@ -103,16 +104,18 @@
     <div class="bordered-box col-4">
         <div class="col-12 text-center">
             <h1>Task List</h1>
-            {{#each tasks as |task|}}
-            <div class="task-box col-8 mx-auto">
-                <div class="task-id" value="{{task.id}}"></div>
-                <div class="task-name">{{task.name}}</div>
-                <div class="task-time">Complete in {{task.time}} minute(s)</div>
-                <div class="d-flex flex-direction-row">
-                    <button class='delete-button' onclick="deleteTaskHandler('{{task.id}}')">Delete</button>
+            <div class="row justify-content-center">
+                {{#each tasks as |task|}}
+                <div class="task-box col-8">
+                    <div class="task-id" value="{{task.id}}"></div>
+                    <div class="task-name">{{task.name}}</div>
+                    <div class="task-time">Complete in {{task.time}} minute(s)</div>
+                    <div class="d-flex flex-direction-row">
+                        <button class='delete-button' onclick="(deleteTaskHandler'{{task.id}}')">Delete</button>
+                    </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
     </div>
     <div class="col-6 bordered-box text-center">

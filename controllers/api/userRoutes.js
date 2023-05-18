@@ -1,7 +1,9 @@
 // requiring express for router
 const router = require('express').Router();
+const fs = require('fs');
 // imports
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../../models');
+const { withAuth } = require('../../utils/auth');
 
 // router signup function for creating an account
 router.post('/', async (req, res) => {
@@ -243,9 +245,35 @@ router.put('/shop/:item_id', async (req, res) => {
    }
 });
 
+router.post('/save-image', withAuth, (req, res) => {
+   let data = '';
+
+   // Receive the image data
+   req.on('data', (chunk) => {
+      data += chunk;
+   });
+
+   // When all data is received, save the image to a file
+   req.on('end', () => {
+      const imageName = req.session.username + '.jpg'; // Generate a unique image name
+      const imagePath = 'public/avatar/' + imageName; // Specify the path to save the image
+      const base64Data = data.replace(/^data:image\/jpeg;base64,/, ''); // Remove the data URI prefix
+
+      // Save the image using the fs module
+      fs.writeFile(imagePath, base64Data, 'base64', (err) => {
+         if (err) {
+            console.error('Error saving image:', err);
+            res.sendStatus(500);
+         } else {
+            console.log('Image saved successfully:', imageName);
+            res.sendStatus(200);
+         }
+      });
+   });
+});
+
 function getRandomNumber(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
 
 module.exports = router;
