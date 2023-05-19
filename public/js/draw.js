@@ -1,7 +1,4 @@
-// let htmlToImage = require('html-to-image');
-// import * as htmlToImage from "html-to-image";
-// import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
-// let express = require ();
+//This code was written with the help of the build-drawing-app-html-canvas-javascript on codingnepalweb.
 
 
 const canvas = document.querySelector("canvas");
