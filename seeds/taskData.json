@@ -1,5 +1,11 @@
 [
     {
+        "name": "Draw your avatar",
+        "time": 5,
+        "category_id": 5,
+        "character_id": 1
+    },
+    {
         "name": "Brush Teeth",
         "time": 2,
         "category_id": 1,
@@ -21,12 +27,6 @@
         "name": "Do ten Jumping Jacks",
         "time": 1,
         "category_id": 4,
-        "character_id": 1
-    },
-    {
-        "name": "Draw your avatar",
-        "time": 5,
-        "category_id": 5,
         "character_id": 1
     }
 ]
