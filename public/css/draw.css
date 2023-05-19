@@ -157,9 +157,18 @@ section{
   color: #fff;
   background: #6C757D;
 }
-.buttons #saveImg{
-  background: #4A98F7;
+
+
+a, 
+.save-img{
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4A98F7;
+  color: #fff;
   border: 1px solid #4A98F7;
+  border-radius: 4px;
   transition: all 0.7s ease;
 }
 

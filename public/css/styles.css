@@ -39,6 +39,10 @@ body {
   max-width: 35px;
 }
 
+#strong-img {
+  max-width: 35px;
+}
+
 .bordered-box {
   border: 4px solid var(--black);
   padding: 10px;
