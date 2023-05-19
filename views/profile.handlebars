@@ -1,4 +1,6 @@
-<header>
+<div class="container-fluid">
+    <header>
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -24,7 +26,7 @@
 <div class="d-flex justify-content-around">
     <div class="character-box col-4">
         <div class="avatar col-4">
-            <img src="./avatar/{{account.username}}.jpg" class="avatar">
+        <img src="./avatar/{{account.username}}.jpg">
         </div>
         <div class="character-info">
             <div class="character-name-level">
@@ -58,10 +60,10 @@
             <div class="task-name">{{tasks.[0].name}}</div>
             <div class="task-time">Complete in {{tasks.[0].time}} minute(s)</div>
             <div class="d-flex flex-direction-row justify-content-around p-3">
-                <button class="complete-button" onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Task
-                    Complete!</button>
-                <button class="delete-button" onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">I
-                    can't do it!</button>
+                <button class="complete-button"
+                    onclick="startTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">Task Complete!</button>
+                <button class="delete-button"
+                    onclick="deleteTaskHandler('{{tasks.[0].id}}', {{tasks.[0].time}})">I can't do it!</button>
             </div>
             <div id="timer"></div>
         </div>
@@ -166,4 +168,4 @@
             }
         }, 1000);
     } 
-</script> --}}
+</script> --}} 
