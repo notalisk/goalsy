@@ -1,13 +1,13 @@
 [
     {
-        "level": 1,
-        "health": 50,
+        "level": 40,
+        "health": 237,
         "xp": 0,
-        "gold": 10,
-        "strength": 1,
-        "perception": 1,
-        "intelligence": 1,
-        "constitution": 1,
+        "gold": 2040,
+        "strength": 143,
+        "perception": 127,
+        "intelligence": 116,
+        "constitution": 135,
         "account_id": 1,
         "inventory_id": 1,
         "bag_id": 1
