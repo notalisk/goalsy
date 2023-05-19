@@ -150,10 +150,18 @@ html {
   padding: 20px 0
 }
 
-.task-name {
+.top-task-name {
   font-weight: bold;
+  font-size: 40px;
   padding: 5px 0
 }
+
+.bottom-task-name {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 0
+}
+
 
 .task-time {
   padding: 5px 0

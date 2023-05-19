@@ -81,7 +81,7 @@ Tevin Walker - https://github.com/teewalk32
 
 Ellen Kobly - https://github.com/notalisk
 
-Frankcisco Orona - https://github.com/Oronafrankie87
+Frank Orona - https://github.com/Oronafrankie87
 
    ~Tutorials and documents followed for this project linked below.~
 
@@ -92,6 +92,17 @@ https://lucid.app/documents#/documents?folder_id=recent
 
 https://www.npmjs.com/package/html-to-image
 
+https://excalidraw.com/
+
+https://www.codingnepalweb.com/build-drawing-app-html-canvas-javascript/
+
+https://www.lucidchart.com
+
+https://www.textstudio.com/editor
+
+## Collaborators and attributes
+
+We relied on Chat Gpt for some understanding of the code, Debugging and error messages.  We would all like to thank the Bootcamp TAs Diem Ly and Negin Namiranian for helping us extensively 
 
 
 ## License
