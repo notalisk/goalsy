@@ -292,6 +292,10 @@ label {
   color: var(--black);
 }
 
+.card-body {
+  text-align: center;
+}
+
 .item {
   max-width: 150px;
   margin-top: 30px;
