@@ -1,4 +1,6 @@
 //This code was written with the help of the build-drawing-app-html-canvas-javascript on codingnepalweb.
+
+
 const canvas = document.querySelector("canvas");
 const toolBtns = document.querySelectorAll(".tool");
 const fillColor = document.querySelector("#fill-color");
