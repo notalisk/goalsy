@@ -1,7 +1,9 @@
 // requiring express for router
 const router = require('express').Router();
+const fs = require('fs');
 // imports
 const { Account, Bag, Bank, Character, Inventory, Item_category, Item, Rarity, Shop, Task_category, Task } = require('../../models');
+const { withAuth } = require('../../utils/auth');
 
 // router signup function for creating an account
 router.post('/', async (req, res) => {
@@ -25,6 +27,7 @@ router.post('/', async (req, res) => {
       });
       // if error happens, catch it and throw a 400 code 
    } catch (err) {
+      console.log(err)
       res.status(400).json(err);
    }
 });
@@ -181,37 +184,97 @@ router.post('/logout', (req, res) => {
 // router function for shop items
 router.put('/shop/:item_id', async (req, res) => {
    try {
-      // Find item in database
-      // const item = await Item.findOne({
-      //    where: {
-      //       id: req.params.item_id,
-      //    }
-      // });
-
-      // const newItem = {
-      //    item_id: req.params.item_id,
-      //    character_id: 1,
-      //    quantity: 1,
-      // }
-
-      // Find user and inventory
-      const inventory = await Inventory.create({
-         item_id: req.params.item_id,
-         character_id: 1,
-         quantity: 1,
+      // find the account
+      const findAccount = await Account.findOne({
+         where: {
+             username: req.session.username
+         }
       });
 
-      console.log(inventory);
-      res.json(inventory);
+      // get the character
+      const characterData = await Character.findOne({
+         where: {
+            account_id: findAccount.dataValues.id
+         },
+         include: [
+            {
+               model: Account,
+            }
+         ]
+      });
+
+      // Get the item
+      const itemData = await Item.findOne({
+         where: {
+            id: req.params.item_id
+         }
+      });
+
+      console.log(itemData.dataValues.cost);
+
+      if (characterData.dataValues.gold >= itemData.dataValues.cost) {
+         const inventory = await Inventory.create({
+            item_id: req.params.item_id,
+            character_id: characterData.dataValues.id,
+            quantity: 1,
+         });
+
+         const characterObject = characterData.toJSON();
+
+         let updatedChar = characterObject;
+
+         updatedChar.gold -= itemData.dataValues.cost;
+
+         console.log(updatedChar.gold);
+
+
+         const updateGold = await Character.update(updatedChar, {
+               where: {
+                  id: characterObject.id
+               }
+            }
+         );
+
+         res.json({ inventory, updateGold });
+      } else {
+         res.status(500).json({ error: 'You cannot afford this item'});
+      }
 
    } catch (err) {
+      console.log(err);
       res.status(500).json({ error: 'An error occurred while buying the item' });
    }
 });
 
+router.post('/save-image', withAuth, (req, res) => {
+   let data = '';
+
+   // Receive the image data
+   req.on('data', (chunk) => {
+      data += chunk;
+   });
+
+   // When all data is received, save the image to a file
+   req.on('end', () => {
+      const imageName = req.session.username + '.jpg'; // Generate a unique image name
+      const imagePath = 'public/avatar/' + imageName; // Specify the path to save the image
+      const base64Data = data.replace(/^data:image\/jpeg;base64,/, ''); // Remove the data URI prefix
+
+      // Save the image using the fs module
+      fs.writeFile(imagePath, base64Data, 'base64', (err) => {
+         if (err) {
+            console.error('Error saving image:', err);
+            res.sendStatus(500);
+         } else {
+            console.log('Image saved successfully:', imageName);
+            res.sendStatus(200);
+         }
+      });
+   });
+});
+
 function getRandomNumber(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
 
 module.exports = router;

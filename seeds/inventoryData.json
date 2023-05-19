@@ -2,16 +2,16 @@
     {
         "quantity": 1,
         "character_id": 1,
-        "item_id": 1
+        "item_id": 5
     },
     {
         "quantity": 1,
         "character_id": 1,
-        "item_id": 6
+        "item_id": 10
     },
     {
         "quantity": 1,
         "character_id": 1,
-        "item_id": 11
+        "item_id": 15
     }
 ]

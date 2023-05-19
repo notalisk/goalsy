@@ -1,5 +1,11 @@
 [
     {
+        "name": "Draw your avatar",
+        "time": 5,
+        "category_id": 5,
+        "character_id": 1
+    },
+    {
         "name": "Brush Teeth",
         "time": 2,
         "category_id": 1,
@@ -12,21 +18,15 @@
         "character_id": 1
     },
     {
-        "name": "Finish Homework",
+        "name": "Become President of a Country",
         "time": 30,
         "category_id": 3,
         "character_id": 1
     },
     {
-        "name": "Do ten Jumping Jacks",
+        "name": "Take over the world!",
         "time": 1,
         "category_id": 4,
-        "character_id": 1
-    },
-    {
-        "name": "Draw your avatar",
-        "time": 5,
-        "category_id": 5,
         "character_id": 1
     }
 ]
