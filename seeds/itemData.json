@@ -63,25 +63,25 @@
         "name": "Bronze locket",
         "category_id": 3,
         "cost": 5,
-        "rarity_id": 5
+        "rarity_id": 1
     },
     {
         "name": "Silver pendant",
         "category_id": 3,
         "cost": 30,
-        "rarity_id": 5
+        "rarity_id": 2
     },
     {
         "name": "Ring of wealth",
         "category_id": 3,
         "cost": 75,
-        "rarity_id": 5
+        "rarity_id": 3
     },
     {
         "name": "Chain of Suffering",
         "category_id": 3,
         "cost": 200,
-        "rarity_id": 5
+        "rarity_id": 4
     },
     {
         "name": "Eternal Amulet of the Damned",

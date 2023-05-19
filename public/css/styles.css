@@ -292,6 +292,10 @@ label {
   color: var(--black);
 }
 
+.card-body {
+  text-align: center;
+}
+
 .item {
   max-width: 150px;
   margin-top: 30px;
@@ -299,6 +303,31 @@ label {
 
 .shop-item-img {
   max-width: 100px;
+}
+
+.shop-item {
+  min-width: 280px;
+  margin: 0 10px;
+}
+
+.Common {
+  color: #9d9d9d;
+}
+
+.Uncommon {
+  color: #1eff00;
+}
+
+.Rare {
+  color: #0070dd;
+}
+
+.Epic {
+  color: #a335ee;
+}
+
+.Legendary {
+  color: #ff8000;
 }
 
 @keyframes colorChange {
@@ -418,6 +447,17 @@ body {
   max-width: 800px;
   margin: auto;
   max-height: 600px;
+}
+
+.container4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+  padding: 20px;
+  margin: 20px auto;
 }
 
 section {
