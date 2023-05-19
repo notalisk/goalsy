@@ -4,8 +4,8 @@
 
 Goalsy is a  fun and engaging task list app, perfect for keeping you on track in your day to day life. Stay motivated to get stuff done and get rewarded for completing tasks. Spend your rewards in the shop, where you can buy cool new items for your character! We was highly motivated to contribute to this project be we wanted to make a full stack application that will help a user in their everyday life. This application helps users to preform daily task by making it fun and exciting to help user reach GOALS!
 
+ 
 ## Table of Contents
-
 
 - [Installation](#installation)
 - [Wire-Frame](#wire-frame)
@@ -15,18 +15,22 @@ Goalsy is a  fun and engaging task list app, perfect for keeping you on track in
 - [License](#license)
 - [Webpage](#webpage)
 
+ 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
+Clone the repository to your local machine
+ 
+run ``npm i`` to install all neccessary modules
+ 
 
 ## Wire-frame 
 
 ![Goalsy-wire-frame](public/images/Goalsy-wireframe.png)
-
+ 
 
 ## Acceptance-criteria
 
+ 
 ## Usage
 
 Upon going to the Taskify website, sign up to create an account or login.
@@ -73,6 +77,7 @@ Upon going to the Taskify website, sign up to create an account or login.
 
 ![alt text](public/images/proflie-b.png)
 
+ 
 ## Credits
 
 Micheal Reagan - https://github.com/MCReagan
@@ -83,22 +88,22 @@ Ellen Kobly - https://github.com/notalisk
 
 Frank Orona - https://github.com/Oronafrankie87
 
-   ~Tutorials and documents followed for this project linked below.~
+Technologies
 
-
-https://getbootstrap.com/
-
-https://lucid.app/documents#/documents?folder_id=recent
-
-https://www.npmjs.com/package/html-to-image
-
-https://excalidraw.com/
-
-https://www.codingnepalweb.com/build-drawing-app-html-canvas-javascript/
-
-https://www.lucidchart.com
-
-https://www.textstudio.com/editor
+Node.js
+ 
+Exzpress
+ 
+Handlebars
+ 
+Sequelize
+ 
+HTML canvas
+ 
+Bootstrap: https://getbootstrap.com/
+ 
+Avatar Drawing Tutorial: https://www.codingnepalweb.com/build-drawing-app-html-canvas-javascript/
+ 
 
 ## Collaborators and attributes
 
@@ -109,8 +114,14 @@ We relied on Chat Gpt for some understanding of the code, Debugging and error me
 
 MIT License is included in this project. Please refer to the repository for more information.
 
-
-
+ 
 ## Webpage
 
 ![alt text](assets/images/screenshot.png)
+
+
+## Links
+ 
+Deployed App (Heroku): https://goalsy.herokuapp.com/
+ 
+Repository: https://github.com/notalisk/goalsy
