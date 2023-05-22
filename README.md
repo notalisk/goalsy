@@ -9,11 +9,11 @@ Goalsy is a  fun and engaging task list app, perfect for keeping you on track in
 
 - [Installation](#installation)
 - [Wire-Frame](#wire-frame)
-- [Acceptance-Criteria](#acceptance-criteria)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 - [Webpage](#webpage)
+- [Links](#links)
 
  
 ## Installation
@@ -26,9 +26,6 @@ run ``npm i`` to install all neccessary modules
 ## Wire-frame 
 
 ![Goalsy-wire-frame](public/images/Goalsy-wireframe.png)
- 
-
-## Acceptance-criteria
 
  
 ## Usage
@@ -117,7 +114,9 @@ MIT License is included in this project. Please refer to the repository for more
  
 ## Webpage
 
-![alt text](assets/images/screenshot.png)
+![alt text](public/images/signup-page.png)
+
+![alt text](public/images/goalsy.png)
 
 
 ## Links
